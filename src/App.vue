@@ -3,7 +3,6 @@
     <router-link to="/">Login</router-link> |
     <router-link to="/signup">Sign up</router-link> |
     <router-link to="/product">Product</router-link> |
-    <router-link to="/cart">Cart</router-link> |
   </nav>
   <router-view/>
 </template>
