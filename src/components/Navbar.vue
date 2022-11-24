@@ -1,4 +1,7 @@
 <template>
+  <div v-if="show">
+  <Cart/>
+  </div>
    <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
@@ -22,10 +25,11 @@
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="h-6 w-6" aria-hidden="true" />
+          <button @click="showCart" type="button" class="text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg aria-hidden="true" class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            Cart
           </button>
+          
 
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
@@ -64,16 +68,37 @@
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import Cart from './Cart_new.vue'
+
 export default{
   name: 'Navbar',
-  components: {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
+  components: {Cart,Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
   data (){
-    return { navigation:[
-  { name: 'Cart', href: '/cart', current: false },
+    return {
+    show:false,
+      navigation:[
   { name: 'Search', href: '#', current: false },
   { name: 'Main', href: '/main', current: false },
+  { name: 'AddProd', href: '/addprod', current: false },
 ]}
+  },
+  methods:{
+    showCart(){
+      this.show=!this.show
+    }
   }
+  // computed: {
+
+  //   showCart(){
+  //     return <Cart_new/>
+
+  //   },
+  //   check(){
+  //     if(this.item.name=='Cart'){
+  //       return True
+  //     }
+  //   }
+  // }
 }
 
 // const navigation = [

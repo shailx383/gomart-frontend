@@ -1,6 +1,7 @@
 <template>
   <Navbar></Navbar>
-  <Cart></Cart>
+  <!-- <Cart></Cart> -->
+
 <div class="bg-white">
   <div class="pt-6">
 
