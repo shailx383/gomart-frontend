@@ -5,6 +5,7 @@ import Product from '../views/Product.vue'
 import Account from '../views/Account.vue'
 import Main from '../views/Main.vue'
 import AddProd from '../views/AddProd.vue'
+import EditProd from '../views/EditProd.vue'
 const routes = [
   {
     path: '/',
@@ -38,6 +39,11 @@ const routes = [
     path: '/addprod',
     name: 'addprod',
     component: AddProd
+  },
+  {
+    path: '/editprod',
+    name: 'editprod',
+    component: EditProd
   },
 ]
 
