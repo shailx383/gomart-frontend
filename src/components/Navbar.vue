@@ -21,6 +21,11 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+              <nav class="nav">
+              <router-link to="/main"> Main  </router-link> |
+              <router-link to="/addprod">   AddProduct </router-link> |
+              <router-link to="/editprod">  EditProduct </router-link>
+            </nav>
             </div>
           </div>
         </div>
@@ -77,9 +82,9 @@ export default{
     return {
     show:false,
       navigation:[
-  { name: 'Search', href: '#', current: false },
   { name: 'Main', href: '/main', current: false },
   { name: 'AddProd', href: '/addprod', current: false },
+  { name: 'EditProd', href: '/editprod', current: false },
 ]}
   },
   methods:{
@@ -108,3 +113,13 @@ export default{
 //   { name: 'Calendar', href: '#', current: false },
 // ]
 </script>
+
+<style>
+
+.nav{
+ color:aliceblue;
+ white-space: pre; 
+
+}
+
+</style>
