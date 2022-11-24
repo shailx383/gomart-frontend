@@ -1,6 +1,6 @@
 <template>
   <Navbar></Navbar>
-
+  <Cart></Cart>
 <div class="bg-white">
   <div class="pt-6">
 
@@ -51,8 +51,9 @@
   import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
   import Navbar from '../components/Navbar.vue'
   import Footer from '../components/Footer.vue'
+  import Cart from '../components/Cart_new.vue'
   export default{
-      components: { Navbar, Footer},
+      components: { Navbar, Footer, Cart},
       name: 'Product',
       data () {
         return{

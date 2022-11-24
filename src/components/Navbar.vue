@@ -71,6 +71,7 @@ export default{
     return { navigation:[
   { name: 'Cart', href: '/cart', current: false },
   { name: 'Search', href: '#', current: false },
+  { name: 'Main', href: '/main', current: false },
 ]}
   }
 }
