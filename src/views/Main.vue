@@ -1,11 +1,80 @@
 <template>
     <Navbar></Navbar>
+    <Carousel></Carousel>
+    <div class="bg-gray-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+        <h2 class="text-2xl font-bold text-gray-900">Shop by Category:</h2>
+
+        <div class="mt-6 space-y-12 lg:grid lg:grid-cols-5 lg:gap-x-6 lg:space-y-0">
+          <div v-for="callout in callouts" :key="callout.name" class="group relative">
+            <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+              <img :src="callout.imageSrc" :alt="callout.imageAlt" class="h-full w-full object-cover object-center" />
+            </div>
+            <h3 class="mt-6 text-sm text-gray-500">
+              <a :href="callout.href">
+                <span class="absolute inset-0" />
+                {{ callout.name }}
+              </a>
+            </h3>
+            <p class="text-base font-semibold text-gray-900">{{ callout.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer></Footer>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import Footer from '../components/Footer.vue'
+import Carousel from '../components/Carousel.vue'
+import { ref } from 'vue'
+
 export default {
     name: 'Main',
-    components: {Navbar}
+    components: {Navbar, Footer, Carousel},
+    data(){
+        return {
+            callouts: [
+  {
+    name: 'Home Appliances',
+    description: 'Home Appliances',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
+    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
+    href: '#',
+  },
+  {
+    name: 'Stationery',
+    description: 'Stationery',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
+    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
+    href: '#',
+  },
+  {
+    name: 'Groceries',
+    description: 'Groceries',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
+  {
+    name: 'Food',
+    description: 'Food',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
+  {
+    name: 'Miscellanious',
+    description: 'Miscellanious',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
+    href: '#',
+  },
+]
+        }
+    }
 }
 </script>
