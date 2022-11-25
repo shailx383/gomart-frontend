@@ -6,6 +6,7 @@ import Account from '../views/Account.vue'
 import Main from '../views/Main.vue'
 import AddProd from '../views/AddProd.vue'
 import EditProd from '../views/EditProd.vue'
+import ManAdmApply from '../views/ManAdmApply.vue'
 const routes = [
   {
     path: '/',
@@ -45,6 +46,11 @@ const routes = [
     name: 'editprod',
     component: EditProd
   },
+  {
+    path: '/manadmapply',
+    name: 'manadmapply',
+    component: ManAdmApply
+  }
 ]
 
 
