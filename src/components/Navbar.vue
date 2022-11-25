@@ -75,7 +75,7 @@ export default{
   components: {Cart,Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
   data (){
     return {
-    show:false,
+    show: false,
       navigation:[
   { name: 'Search', href: '#', current: false },
   { name: 'Main', href: '/main', current: false },
@@ -84,7 +84,7 @@ export default{
   },
   methods:{
     showCart(){
-      this.show=!this.show
+      this.show = !this.show
     }
   }
   // computed: {
