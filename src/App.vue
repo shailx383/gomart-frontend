@@ -3,7 +3,8 @@
     <router-link to="/">Login</router-link> |
     <router-link to="/signup">Sign up</router-link> |
     <router-link to="/product">Product</router-link> |
-    <router-link to="/manadmapply">Apply</router-link>
+    <router-link to="/manadmapply">Apply</router-link> |
+    <router-link to="/prodsearch">Product Search Result</router-link>
   </nav>
   <router-view/>
 </template>

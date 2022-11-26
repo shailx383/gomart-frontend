@@ -7,6 +7,8 @@ import Main from '../views/Main.vue'
 import AddProd from '../views/AddProd.vue'
 import EditProd from '../views/EditProd.vue'
 import ManAdmApply from '../views/ManAdmApply.vue'
+import ProductSearch from '../views/ProductSearch.vue'
+
 const routes = [
   {
     path: '/',
@@ -50,7 +52,12 @@ const routes = [
     path: '/manadmapply',
     name: 'manadmapply',
     component: ManAdmApply
-  }
+  },
+  {
+    path: '/prodsearch',
+    name: 'prodsearch',
+    component: ProductSearch
+  },
 ]
 
 
