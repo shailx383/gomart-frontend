@@ -9,6 +9,8 @@ import EditProd from '../views/EditProd.vue'
 import ManAdmApply from '../views/ManAdmApply.vue'
 import ProductSearch from '../views/ProductSearch.vue'
 import ManAdmList from '../views/ManAdmList.vue'
+import RstPass from '../views/RstPass.vue'
+import ViewProf from '../views/ViewProf.vue'
 
 const routes = [
   {
@@ -64,6 +66,16 @@ const routes = [
     name: 'manadmlist',
     component: ManAdmList
   },
+  {
+    path: '/rstpass',
+    name: 'rstpass',
+    component: RstPass
+  },
+  {
+    path: '/viewprof',
+    name: 'viewprof',
+    component: ViewProf
+  }
 ]
 
 
