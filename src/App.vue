@@ -9,8 +9,11 @@
     <router-link to="/rstpass">Reset Password</router-link> |
     <!-- <router-link to="/viewprof">View Profile</router-link> -->
   </nav>
+  <Test></Test>
   <router-view/>
 </template>
+
+
 <!-- 
 <style>
 #app {

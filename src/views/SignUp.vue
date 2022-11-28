@@ -111,14 +111,6 @@ export default {
             <input id="phone" name="phone" type="tel" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
         </div>
-        <div class="col-span-6 sm:col-span-3">
-          <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
-          <select id="gender" name="gender" autocomplete="" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
         
       
         <div class="flex items-center justify-between">
