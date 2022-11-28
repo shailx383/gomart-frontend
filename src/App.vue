@@ -7,6 +7,8 @@
     <router-link to="/prodsearch">Product Search Result</router-link> |
     <router-link to="/manadmlist">List</router-link> |
     <router-link to="/rstpass">Reset Password</router-link> |
+    <router-link to="/PastOrders">Past Orders</router-link> |
+    <!-- <router-link to="/viewprof">View Profile</router-link> -->
   </nav>
   <Test></Test>
   <router-view/>

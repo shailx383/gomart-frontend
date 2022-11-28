@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'flowbite';
 
 import { createApp } from 'vue'
 import App from './App.vue'

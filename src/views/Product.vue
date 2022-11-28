@@ -6,7 +6,7 @@
   <div class="pt-6">
 
 
-    <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+  <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
       <div class="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
         <img :src="product.images[0].src" :alt="product.images[0].alt" class="h-full w-full object-cover object-center" />
       </div>

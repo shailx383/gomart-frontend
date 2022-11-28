@@ -12,6 +12,8 @@ import ManAdmList from '../views/ManAdmList.vue'
 import RstPass from '../views/RstPass.vue'
 import ViewProf from '../views/ViewProf.vue'
 import Checkout from '../views/Checkout.vue'
+import PastOrders from '../views/PastOrders.vue'
+
 
 const routes = [
   {
@@ -71,6 +73,12 @@ const routes = [
     path: '/rstpass',
     name: 'rstpass',
     component: RstPass
+  },
+
+  {
+    path: '/PastOrders',
+    name: 'PastOrders',
+    component: PastOrders
   },
   {
     path: '/viewprof',
