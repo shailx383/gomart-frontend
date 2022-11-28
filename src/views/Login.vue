@@ -10,16 +10,16 @@
           <router-link to="/signup">Create an Account</router-link>
         </p>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form @submit.prevent="loginUser" class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
             <label for="email-address" class="sr-only">Email address</label>
-            <input id="email-address" name="email" type="email" autocomplete="email" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address" />
+            <input v-model="login_data.email" id="email-address" name="email" type="email" autocomplete="email" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address" />
           </div>
           <div>
             <label for="password" class="sr-only">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" required="" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
+            <input v-model="login_data.password" id="password" name="password" type="password" autocomplete="current-password" required="" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
           </div>
         </div>
 
@@ -51,5 +51,34 @@
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
 export default {
   name: 'Login',
+  data(){
+    return{
+      logged: '',
+      login_data: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    loginUser(){
+      axios.post('http://localhost:8080/user/login', this.login_data)
+        .then(response => this.logged = response.data) 
+        .catch(error => console.log(error))
+    },
+    logging(){
+      this.$router.push("/main")
+    }
+  },
+  mounted(){
+    if (localStorage.logged){
+      this.logged = localStorage.logged
+    }   
+  },
+  watch: {
+    logged(newLogged){
+      localStorage.logged = newLogged
+    }
+  },
 }
 </script>

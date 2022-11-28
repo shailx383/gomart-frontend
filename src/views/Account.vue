@@ -8,27 +8,22 @@
       </div>
       <div class="border-t border-gray-200">
         <dl>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt class="text-sm font-medium text-gray-500">ID</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{profile.ID}}</dd>
-          </div>
           <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Full name</dt>
-            <dd contenteditable @input="changeName" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{profile.name}}
-                
+            <dd contenteditable @input="changeName" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.firstName}} {{account_info.lastName}}
             </dd>
           </div>
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Email</dt>
-            <dd contenteditable @input="changeEmail" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{profile.email}}</dd>
+            <dd contenteditable @input="changeEmail" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.email}}</dd>
           </div>
           <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Address</dt>
-            <dd contenteditable @input="changeAddress" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{profile.address}}</dd>
+            <dd contenteditable @input="changeAddress" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.address}}</dd>
           </div>
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Phone number</dt>
-            <dd contenteditable @input="changePhone" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{profile.phone}}</dd>
+            <dd contenteditable @input="changePhone" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.phoneNumber}}</dd>
             <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Update Profile</button>
         </div>
         </dl>
@@ -44,32 +39,33 @@
         </dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Current Balance:</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">₹{{profile.balance}}</dd>
-            <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Add money</button>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">₹{{ewallet.amount}}</dd>
+            <button @click = "showModal" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" data-modal-toggle="wallet-modal" >Add money</button>
+            <div v-if="modal_shown" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+              <Wallet></Wallet>
+    </div>
+    <div v-if="modal_shown" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
           </div>
         </div>
         </div>
-    <Footer></Footer>
+         <Footer></Footer>
 </template>
   
   <script>
+  import Wallet from '../components/Wallet'
   import Navbar from '../components/Navbar'
   import Footer from '../components/Footer'
   export default{
     name: 'Account',
     data() {
         return{
-            profile: {
-                name: 'Arnav Yayavaram',
-                ID: '#UC479',
-                email: 'arnavyayavaram@gmail.com',
-                address: 'VK-214, BITS Pilani Hyderabad Campus',
-                phone: '9663388332',
-                balance: 1000
-            },
+            account_info: '',
+            customer_info: '',
+            ewallet: '',
+            modal_shown: false,
         }
     },
-    components: {Navbar, Footer},
+    components: {Navbar, Footer, Wallet},
     methods: {
         changeName(e){
             this.profile.name=e.target.innerText
@@ -82,7 +78,22 @@
                 },
         changePhone(e){
             this.profile.phone=e.target.innerText
-                },        
-    }
+                },   
+        showModal(){
+          this.modal_shown = !this.modal_shown
+          console.log(this.modal_shown)
+        }   
+    },
+    mounted(){
+      axios.get('http://localhost:8080/user/'+localStorage.logged.toString())
+        .then(response => {
+          this.account_info = response.data;
+          
+          console.log(response.data);
+          this.customer_info = response.data.customer
+          this.ewallet = this.customer_info.wallet;
+        })
+
   }
+}
   </script>
