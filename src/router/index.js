@@ -11,6 +11,7 @@ import ProductSearch from '../views/ProductSearch.vue'
 import ManAdmList from '../views/ManAdmList.vue'
 import RstPass from '../views/RstPass.vue'
 import ViewProf from '../views/ViewProf.vue'
+import Checkout from '../views/Checkout.vue'
 
 const routes = [
   {
@@ -75,6 +76,11 @@ const routes = [
     path: '/viewprof',
     name: 'viewprof',
     component: ViewProf
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: Checkout
   }
 ]
 
