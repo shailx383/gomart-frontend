@@ -83,32 +83,36 @@ export default {
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Create your account</h2>
 
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form @submit.prevent="createUser" class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Name</label>
-            <input id="name" name="name" type="text" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <label for="fname" class="block text-sm font-medium text-gray-700 pt-4 pb-3">First Name</label>
+            <input v-model="signup_data.firstName" id="fname" name="fname" type="text" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+          </div>
+          <div>
+            <label for="lname" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Last Name</label>
+            <input v-model="signup_data.lastName" id="lname" name="lname" type="text" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Email</label>
-            <input id="email" name="email" type="email" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <input v-model="signup_data.email" id="email" name="email" type="email" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
           <div>
             <label for="password" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Password</label>
-            <input id="password" name="password" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <input v-model="signup_data.password" id="password" name="password" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
-          <div>
+          <!-- <div>
             <label for="password1" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Confirm password</label>
-            <input id="password1" name="password1" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
-          </div>
+            <input v-model="signup_data.password1" id="password1" name="password1" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+          </div> -->
           <div>
             <label for="dob" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Date of Birth</label>
-            <input id="dob" name="dob" type="date" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <input v-model="signup_data.dob" id="dob" name="dob" type="date" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Phone number</label>
-            <input id="phone" name="phone" type="tel" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <input v-model="signup_data.phone" id="phone" name="phone" type="tel" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
         </div>
         
@@ -130,6 +134,30 @@ export default {
   </div>
 </template>
 
-<script setup>
+<script>
+import axios from 'axios'
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
+export default{
+  data(){
+    return{
+       signup_data: {
+         firstName: '',
+         lastName: '',
+         email: '',
+         dob: '',
+         amount: 1000,
+         phone: '',
+         address: 'random street',
+         password: ''
+     }
+    }
+  },
+  methods: {
+    createUser(){
+      axios.post('http://localhost:8080/user/signup', this.signup_data)
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+    }
+  }
+}
 </script>
