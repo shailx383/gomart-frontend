@@ -20,9 +20,23 @@
         <p class="text-3xl tracking-tight text-gray-900">₹{{ product.price }}</p>
 
 
-        <form class="mt-10">
+        <form @submit.prevent="addToCart" class="mt-10">
 
-
+          <div class="flex justify-center">
+  <div class="mb-3 xl:w-96">
+    <label for="exampleNumber0" class="form-label inline-block mb-2 text-gray-700"
+      >Quantity:</label
+    >
+    <input v-model="purchase.quantity"
+      type="number"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleNumber0"
+      placeholder=""
+      min="1"
+      :max="product.quantity"
+      />
+  </div>
+</div>
 
           <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to Cart</button>
         </form>
@@ -60,12 +74,25 @@
       name: 'Product',
       data () {
         return{
-          product : {}
+          product : {},
+          quan: '',
+          purchase: {
+            productId: this.$route.params.id,
+            userId: localStorage.logged,
+            quantity: ''
+          },
+          
         }
       },
       mounted(){
         axios.get('http://localhost:8080/user/products/'+this.$route.params.id)
           .then(response => (this.product = response.data))
+      },
+      methods: {
+        addToCart(){
+          axios.post('http://localhost:8080/user/addToCart', this.purchase)
+            .then(console.log(this.purchase))
+        }
       }
 
   }
