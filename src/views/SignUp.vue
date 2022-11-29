@@ -107,8 +107,8 @@ export default {
             <input v-model="signup_data.password1" id="password1" name="password1" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div> -->
           <div>
-            <label for="dob" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Date of Birth</label>
-            <input v-model="signup_data.dob" id="dob" name="dob" type="date" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+            <label for="address" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Address</label>
+            <input v-model="signup_data.address" id="address" name="address" type="text" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
           </div>
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Phone number</label>
@@ -148,10 +148,10 @@ export default{
          firstName: '',
          lastName: '',
          email: '',
-         dob: '',
+         dob: '2003-08-08',
          amount: 1000,
          phone: '',
-         address: 'random street',
+         address: '',
          password: ''
      },
      addmoney: false
