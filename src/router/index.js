@@ -13,6 +13,7 @@ import RstPass from '../views/RstPass.vue'
 import ViewProf from '../views/ViewProf.vue'
 import Checkout from '../views/Checkout.vue'
 import PastOrders from '../views/PastOrders.vue'
+import ProductSearchByCategory from '../views/ProductSearchByCategory.vue'
 
 
 const routes = [
@@ -32,7 +33,7 @@ const routes = [
     props: true
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'product',
     component: Product,
     props: true
@@ -102,6 +103,12 @@ const routes = [
     path: '/checkout',
     name: 'checkout',
     component: Checkout,
+    props: true
+  },
+  {
+    path: '/prodsearchbycat/:cat',
+    name: 'prodsearchbycat',
+    component: ProductSearchByCategory,
     props: true
   }
 ]

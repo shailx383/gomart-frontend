@@ -13,7 +13,7 @@
             <div>
               <h3 class="text-sm text-gray-700">
                 <a :href="product.href">
-                  <span @click="showProduct(product.productId)" aria-hidden="true" class="absolute inset-0" />
+                  <span aria-hidden="true" class="absolute inset-0" />
                   {{ prod.name }}
                 </a>
               </h3>
@@ -36,19 +36,13 @@ export default {
     components: {Navbar, Footer},
     data () {
         return {
-          searchName : this.$route.params.search,
+          category : this.$route.params.cat,
           product: []
         }
     },
     mounted(){
-      axios.get('http://localhost:8080/user/products/name/'+this.searchName)
+      axios.get('http://localhost:8080/user/products/category/'+this.category)
         .then(response => (this.product = response.data))
-    },
-    methods(){
-      showProduct(p_id)
-      {
-        this.$router.push('/product/'+p_id)
-      }
     }
 }
 </script>
