@@ -13,7 +13,7 @@
             <div>
               <h3 class="text-sm text-gray-700">
                 <a :href="product.href">
-                  <span aria-hidden="true" class="absolute inset-0" />
+                  <span @click="this.$router.push('/product/'+prod.productId)" aria-hidden="true" class="absolute inset-0" />
                   {{ prod.name }}
                 </a>
               </h3>
