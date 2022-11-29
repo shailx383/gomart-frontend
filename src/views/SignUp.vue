@@ -128,6 +128,9 @@ export default {
           <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
             Create Account
           </button>
+          <div v-if="addmoney" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+              <InitWallet></InitWallet>
+    </div>
         </div>
       </form>
     </div>
@@ -136,6 +139,7 @@ export default {
 
 <script>
 import axios from 'axios'
+import InitWallet from '@/components/InitWallet.vue'
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
 export default{
   data(){
@@ -149,14 +153,25 @@ export default{
          phone: '',
          address: 'random street',
          password: ''
-     }
+     },
+     addmoney: false
     }
   },
+  components: {InitWallet},
   methods: {
     createUser(){
       axios.post('http://localhost:8080/user/signup', this.signup_data)
-        .then(response => console.log(response))
+        .then(response => 
+        {
+          console.log(response);
+          this.addMoney();
+
+        })
         .catch(error => console.log(error))
+      
+    },
+    addMoney(){
+      this.addmoney = !this.addmoney
     }
   }
 }

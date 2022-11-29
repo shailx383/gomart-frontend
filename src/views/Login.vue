@@ -63,7 +63,8 @@ export default {
   methods: {
     loginUser(){
       axios.post('http://localhost:8080/user/login', this.login_data)
-        .then(response => this.logged = response.data) 
+        .then(response => {this.logged = response.data;
+                            this.logging();}) 
         .catch(error => console.log(error))
     },
     logging(){
