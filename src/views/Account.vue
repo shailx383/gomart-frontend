@@ -24,7 +24,10 @@
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Phone number</dt>
             <dd contenteditable @input="changePhone" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.phoneNumber}}</dd>
-            <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Update Profile</button>
+            <button @click="editInfo" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Update Profile</button>
+            <div v-if="edit" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+              <UpdateUser></UpdateUser>
+    </div>
         </div>
         </dl>
       </div>
@@ -55,6 +58,8 @@
   import Wallet from '../components/Wallet'
   import Navbar from '../components/Navbar'
   import Footer from '../components/Footer'
+  import UpdateUser from '../components/UpdateUser'
+  
   export default{
     name: 'Account',
     data() {
@@ -63,9 +68,10 @@
             customer_info: '',
             ewallet: '',
             modal_shown: false,
+            edit: false
         }
     },
-    components: {Navbar, Footer, Wallet},
+    components: {Navbar, Footer, Wallet, UpdateUser},
     methods: {
         changeName(e){
             this.profile.name=e.target.innerText
@@ -81,8 +87,11 @@
                 },   
         showModal(){
           this.modal_shown = !this.modal_shown
-          console.log(this.modal_shown)
-        }   
+        },
+        editInfo(){
+          this.edit = !this.edit
+        }  
+
     },
     mounted(){
       axios.get('http://localhost:8080/user/'+localStorage.logged.toString())
