@@ -14,13 +14,13 @@
             <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
               <img :src="callout.imageSrc" :alt="callout.imageAlt" class="h-full w-full object-cover object-center" />
             </div>
-            <h3 class="mt-6 text-sm text-gray-500">
+            <h2 class="mt-6 text-lg text-black-500">
               <a :href="callout.href">
                 <span class="absolute inset-0" />
                 {{ callout.name }}
               </a>
-            </h3>
-            <p class="text-base font-semibold text-gray-900">{{ callout.description }}</p>
+            </h2>
+            <!-- <p class="text-base font-semibold text-gray-900">{{ callout.description }}</p> -->
           </div>
         </div>
       </div>
@@ -44,35 +44,35 @@ export default {
   {
     name: 'Home Appliances',
     description: 'Home Appliances',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
+    imageSrc: 'https://img.freepik.com/premium-photo/home-appliances-gas-cooker-tv-cinema-refrigerator-air-conditioner-microwave-laptop-washing-machine_252025-693.jpg?w=2000',
     imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
     href: '#',
   },
   {
     name: 'Stationery',
     description: 'Stationery',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
+    imageSrc: 'https://www.stationeryhut.in/blog/wp-content/uploads/2016/01/office.jpg',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
     href: '#',
   },
   {
     name: 'Groceries',
     description: 'Groceries',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageSrc: 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&w=1000&q=80',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },
   {
     name: 'Food',
     description: 'Food',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageSrc: 'https://media.istockphoto.com/id/458413277/photo/american-grocery-collection.jpg?s=612x612&w=0&k=20&c=gDN8XOo265kaFB7exEcdGhmAeh3kRfY1Er-CkNaA1iw=',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },
   {
     name: 'Miscellanious',
     description: 'Miscellanious',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageSrc: 'https://media.istockphoto.com/id/499481514/photo/shopping-basket-with-body-care-and-beauty-products-over-white.jpg?s=612x612&w=0&k=20&c=5CW3Xg2Ax3Y5oihshVkKhpRyCGCTmuRDqSAbhR2HXw8=',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },

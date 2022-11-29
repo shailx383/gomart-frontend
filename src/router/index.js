@@ -19,7 +19,8 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: Login
+    component: Login,
+    props: true
   },
   {
     path: '/signup',
@@ -27,68 +28,81 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: SignUp
+    component: SignUp,
+    props: true
   },
   {
     path: '/product',
     name: 'product',
-    component: Product
+    component: Product,
+    props: true
   },
   {
     path: '/account',
     name: 'account',
-    component: Account
+    component: Account,
+    props: true
   },
   {
     path: '/main',
     name: 'main',
-    component: Main
+    component: Main,
+    props: true
   },
   {
     path: '/addprod',
     name: 'addprod',
-    component: AddProd
+    component: AddProd,
+    props: true
   },
   {
     path: '/editprod',
     name: 'editprod',
-    component: EditProd
+    component: EditProd,
+    props: true
   },
   {
     path: '/manadmapply',
     name: 'manadmapply',
-    component: ManAdmApply
+    component: ManAdmApply,
+    props: true
   },
   {
-    path: '/prodsearch',
+    path: '/prodsearch/:search',
     name: 'prodsearch',
-    component: ProductSearch
+    component: ProductSearch,
+    props: true
   },
   {
     path: '/manadmlist',
     name: 'manadmlist',
-    component: ManAdmList
+    component: ManAdmList,
+    props: true
   },
   {
     path: '/rstpass',
     name: 'rstpass',
-    component: RstPass
+    component: RstPass,
+    props: true
   },
 
   {
     path: '/PastOrders',
     name: 'PastOrders',
-    component: PastOrders
+    component: PastOrders,
+    props: true
   },
   {
     path: '/viewprof',
     name: 'viewprof',
-    component: ViewProf
+    component: ViewProf,
+    props: true
   },
   {
     path: '/checkout',
     name: 'checkout',
-    component: Checkout
+    component: Checkout,
+    props: true
   }
 ]
 
