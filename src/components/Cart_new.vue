@@ -34,17 +34,19 @@
                               <div>
                                 <div class="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
-                                    <a :href="product.href">{{ product.name }}</a>
+                                    <a>{{ product.product.name }}</a>
                                   </h3>
-                                  <p class="ml-4">{{ product.price }}</p>
+                                  <p class="ml-4">₹{{ product.product.price }}</p>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
+                                <p class="mt-1 text-base text-gray-500">{{ product.product.category }}</p>
+                                <p class="mt-1 text-sm text-gray-500">{{ product.product.description }}</p>
                               </div>
                               <div class="flex flex-1 items-end justify-between text-sm">
                                 <p class="text-gray-500">Qty {{ product.quantity }}</p>
 
+
                                 <div class="flex">
-                                  <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                  <button @click="removeFromCart(product.product.productId)" type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                                 </div>
                               </div>
                             </div>
@@ -61,7 +63,7 @@
                     </div>
                     <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                     <div class="mt-6">
-                      <a href="checkout" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                      <a href="/checkout" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
                     </div>
                     <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
@@ -92,33 +94,21 @@ export default {
     components: { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot, XMarkIcon },
     data () {
         return {
-            products: [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-  },
-  // More products...
-],
+            products: [],
   open: ref(true)
 
         }
+    },
+    methods(){
+      removeFromCart(id)
+      {
+        axios.post('http://localhost:8080/user/cart', {productId: id, userId: localStorage.logged})
+      }
+    },
+    mounted(){
+      axios.get('http://localhost:8080/user/'+localStorage.logged.toString()+'/cart')
+        .then(response => (this.products = response.data))
     }
+
 }
 </script>
