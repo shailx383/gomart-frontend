@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         topUpWallet(){
-            axios.post('http://localhost:8080/user/wallet', this.edit_info)
+            axios.post('https://gomart-production.up.railway.app/user/wallet', this.edit_info)
         }
     }
 }

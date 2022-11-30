@@ -160,7 +160,7 @@ export default{
   components: {InitWallet},
   methods: {
     createUser(){
-      axios.post('http://localhost:8080/user/signup', this.signup_data)
+      axios.post('https://gomart-production.up.railway.app/user/signup', this.signup_data)
         .then(response => 
         {
           console.log(response);

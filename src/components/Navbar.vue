@@ -110,7 +110,7 @@ export default{
       this.show = !this.show
     },
     logoutUser(){
-      axios.post('http://localhost:8080/user/logout', {"userId": localStorage.logged})
+      axios.post('https://gomart-production.up.railway.app/user/logout', {"userId": localStorage.logged})
     },
     onSearch(){
       this.$router.push({path: "/prodsearch/"+this.searchName})

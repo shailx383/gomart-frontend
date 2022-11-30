@@ -56,7 +56,7 @@
       },
       methods: {
           changeInfo(){
-              axios.post('http://localhost:8080/user/'+localStorage.logged.toString(), this.edit_info)
+              axios.post('https://gomart-production.up.railway.app/user/update/'+localStorage.logged.toString(), this.edit_info)
           }
       }
   }

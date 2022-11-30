@@ -85,12 +85,12 @@
         }
       },
       mounted(){
-        axios.get('http://localhost:8080/user/products/'+this.$route.params.id)
+        axios.get('https://gomart-production.up.railway.app/user/products/'+this.$route.params.id)
           .then(response => (this.product = response.data))
       },
       methods: {
         addToCart(){
-          axios.post('http://localhost:8080/user/addToCart', this.purchase)
+          axios.post('https://gomart-production.up.railway.app/user/addToCart', this.purchase)
             .then(console.log(this.purchase))
         }
       }

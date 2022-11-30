@@ -114,7 +114,7 @@ export default {
         this.error_shown = !this.error_shown
       },
       placeOrder(){
-        axios.post('http://localhost:8080/user/cart/checkout', {userId: localStorage.logged})
+        axios.post('https://gomart-production.up.railway.app/user/cart/checkout', {userId: localStorage.logged})
             .catch((error) => this.showError())
 
             
@@ -123,7 +123,7 @@ export default {
       }
     },
     mounted(){
-      axios.get('http://localhost:8080/user/'+localStorage.logged.toString()+'/cart')
+      axios.get('https://gomart-production.up.railway.app/user/'+localStorage.logged.toString()+'/cart')
         .then(response => {this.products = response.data;
                             this.total_price();
                             this.total_quantity();

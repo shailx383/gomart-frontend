@@ -104,7 +104,7 @@ export default {
     methods: {
       remove(id){
         console.log(id)
-        axios.post('http://localhost:8080/user/cart', {productId: id, userId: localStorage.logged})
+        axios.post('https://gomart-production.up.railway.app/user/cart', {productId: id, userId: localStorage.logged})
         window.location.reload()
       },
       total(){
@@ -117,7 +117,7 @@ export default {
       }
     },
     mounted(){
-      axios.get('http://localhost:8080/user/'+localStorage.logged.toString()+'/cart')
+      axios.get('https://gomart-production.up.railway.app/user/'+localStorage.logged.toString()+'/cart')
         .then(response => {this.products = response.data;
                             this.total()
                 })

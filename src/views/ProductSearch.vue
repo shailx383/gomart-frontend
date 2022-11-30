@@ -41,7 +41,7 @@ export default {
         }
     },
     mounted(){
-      axios.get('http://localhost:8080/user/products/name/'+this.searchName)
+      axios.get('https://gomart-production.up.railway.app/user/products/name/'+this.searchName)
         .then(response => (this.product = response.data))
     },
     methods(){
