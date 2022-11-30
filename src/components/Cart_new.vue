@@ -25,7 +25,7 @@
                     <div class="mt-8">
                       <div class="flow-root">
                         <ul role="list" class="-my-6 divide-y divide-gray-200">
-                          <li v-for="product in products" :key="product.id" class="flex py-6">
+                          <li v-for="product in products" :key="product.product.productId" class="flex py-6">
                             <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover object-center" />
                             </div>
@@ -46,7 +46,7 @@
 
 
                                 <div class="flex">
-                                  <button @click="removeFromCart(product.product.productId)" type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                  <button @click="remove(product.product.productId)" type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                                 </div>
                               </div>
                             </div>
@@ -87,6 +87,7 @@
 
 <script>
 import { ref } from 'vue'
+import { toRaw } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 export default {
@@ -99,15 +100,17 @@ export default {
 
         }
     },
-    methods(){
-      removeFromCart(id)
-      {
+    methods: {
+      remove(id){
+        console.log(id)
         axios.post('http://localhost:8080/user/cart', {productId: id, userId: localStorage.logged})
+        window.location.reload()
       }
     },
     mounted(){
       axios.get('http://localhost:8080/user/'+localStorage.logged.toString()+'/cart')
-        .then(response => (this.products = response.data))
+        .then(response => {this.products = response.data;
+                })
     }
 
 }
