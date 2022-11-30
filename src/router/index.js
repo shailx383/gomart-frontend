@@ -88,8 +88,8 @@ const routes = [
   },
 
   {
-    path: '/PastOrders',
-    name: 'PastOrders',
+    path: '/pastorders',
+    name: 'pastorders',
     component: PastOrders,
     props: true
   },

@@ -116,7 +116,8 @@ export default {
       placeOrder(){
         axios.post('http://localhost:8080/user/cart/checkout', {userId: localStorage.logged})
             .catch((error) => this.showError())
-            // .then(this.$router.push('/main'))
+
+            
         
         
       }
