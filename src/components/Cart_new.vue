@@ -36,7 +36,7 @@
                                   <h3>
                                     <a>{{ product.product.name }}</a>
                                   </h3>
-                                  <p class="ml-4">₹{{ product.product.price }}</p>
+                                  <p class="ml-4">₹{{( product.product.price * product.quantity)}}</p>
                                 </div>
                                 <p class="mt-1 text-base text-gray-500">{{ product.product.category }}</p>
                                 <p class="mt-1 text-sm text-gray-500">{{ product.product.description }}</p>
@@ -59,7 +59,7 @@
                   <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
                     <div class="flex justify-between text-base font-medium text-gray-900">
                       <p>Subtotal</p>
-                      <p>$262.00</p>
+                      <p>₹{{totalPrice}}</p>
                     </div>
                     <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                     <div class="mt-6">
@@ -96,6 +96,7 @@ export default {
     data () {
         return {
             products: [],
+            totalPrice: 0,
   open: ref(true)
 
         }
@@ -105,12 +106,24 @@ export default {
         console.log(id)
         axios.post('http://localhost:8080/user/cart', {productId: id, userId: localStorage.logged})
         window.location.reload()
+      },
+      total(){
+        for (let i = 0; i < this.products.length; i++){
+          this.totalPrice += (this.products[i].product.price * this.products[i].quantity)
+        }
+      },
+      goToCheckout(){
+        this.$router.push('/checkout')
       }
     },
     mounted(){
       axios.get('http://localhost:8080/user/'+localStorage.logged.toString()+'/cart')
         .then(response => {this.products = response.data;
+                            this.total()
                 })
+    },
+    computed: {
+      
     }
 
 }

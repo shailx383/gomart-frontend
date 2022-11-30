@@ -56,7 +56,7 @@
       },
       methods: {
           changeInfo(){
-              axios.put('http://localhost:8080/user/'+localStorage.logged.toString(), this.edit_info)
+              axios.post('http://localhost:8080/user/'+localStorage.logged.toString(), this.edit_info)
           }
       }
   }
