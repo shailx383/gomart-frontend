@@ -7,24 +7,16 @@
           <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Reset Password</h2>
   
         </div>
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form @submit.prevent="reset" class="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" value="true" />
           <div class="-space-y-px rounded-md shadow-sm">
             <div>
-              <label for="password" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Password</label>
-              <input id="password" name="password" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+              <label for="password" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Old Password</label>
+              <input v-model="passwords.oldpass" id="password" name="password" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
             </div>
             <div>
-              <label for="password1" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Confirm password</label>
-              <input id="password1" name="password1" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Email</label>
-              <input id="email" name="email" type="email" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Phone number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
+              <label for="password1" class="block text-sm font-medium text-gray-700 pt-4 pb-3">New Password</label>
+              <input v-model="passwords.newpass" id="password1" name="password1" type="password" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="" />
             </div>
           </div>
           
@@ -39,6 +31,23 @@
     </div>
   </template>
   
-  <script setup>
-
-  </script>
+  <script>
+  
+  export default {
+      name: 'RstPass',
+      data(){
+          return{
+              passwords:{
+                oldpass:'',
+                newpass:''
+              }
+  
+          }
+      },
+      methods:{
+          reset(){
+              axios.post('https://gomart-production.up.railway.app/user/changePassword',{userId:localStorage.logged,oldPassword:this.passwords.oldpass, newPassword:this.passwords.newpass})
+          }
+      }
+   }
+</script>
