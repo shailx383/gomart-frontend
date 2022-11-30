@@ -2,7 +2,7 @@
 <!-- <Navbar></Navbar> -->
 
 
-<form id="form1">
+<form @submit.prevent="apply" id="form1">
     <div class="px-4 py-5 sm:px-6">
         <h3 id="h3" class="text-lg font-medium leading-6 text-gray-900">Enter your Information</h3>
     </div>
@@ -45,6 +45,7 @@
 <script>
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     components: { Navbar, Footer},
@@ -55,6 +56,11 @@ export default {
             val:'',
 
 
+        }
+    },
+    methods:{
+        apply(){
+            axios.post('https://gomart-production.up.railway.app/user/apply/manager',{userId:localStorage.logged})
         }
     }
  }
