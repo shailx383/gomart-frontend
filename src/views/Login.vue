@@ -57,8 +57,7 @@ export default {
       login_data: {
         email: '',
         password: ''
-      },
-      role: ''
+      }
     }
   },
   methods: {
@@ -69,20 +68,7 @@ export default {
         .catch(error => console.log(error))
     },
     logging(){
-      axios.get('https://gomart-production.up.railway.app/user/'+localStorage.logged)
-      .then(response => {
-        if (response.data.admin.adminPerms){
-          this.$router.push("/mainadm")
-        }
-        else{
-          if (response.data.manager.managerPerms){
-            this.$router.push("/mainman")
-          }
-          else{
-            this.$router.push("/main")
-          }
-        }
-      })
+      this.$router.push("/main")
     }
   },
   mounted(){
@@ -94,7 +80,6 @@ export default {
     logged(newLogged){
       localStorage.logged = newLogged
     }
-    
   },
 }
 </script>
