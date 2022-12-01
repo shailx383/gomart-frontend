@@ -14,6 +14,8 @@ import ViewProf from '../views/ViewProf.vue'
 import Checkout from '../views/Checkout.vue'
 import PastOrders from '../views/PastOrders.vue'
 import ProductSearchByCategory from '../views/ProductSearchByCategory.vue'
+import MainMan from '../views/MainMan.vue'
+import MainAdm from '../views/MainAdm.vue'
 
 
 const routes = [
@@ -109,6 +111,18 @@ const routes = [
     path: '/prodsearchbycat/:cat',
     name: 'prodsearchbycat',
     component: ProductSearchByCategory,
+    props: true
+  },
+  {
+    path: '/mainman',
+    name: 'mainman',
+    component: MainMan,
+    props: true
+  },
+  {
+    path: '/mainadm',
+    name: 'mainmadm',
+    component: MainAdm,
     props: true
   }
 ]
