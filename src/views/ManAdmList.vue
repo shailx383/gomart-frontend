@@ -103,6 +103,9 @@
                 <th scope="col" class="py-3 px-6">
                     Role
                 </th>
+                <th scope="col" class="py-3 px-6">
+                    <span class="sr-only">Edit</span>
+                </th>
             </tr>
         </thead>
         <tbody v-for="manager in currentManagers" :key="manager.userId">
@@ -115,6 +118,9 @@
                 </td>
                 <td class="py-4 px-6">
                     Manager
+                </td>
+                <td class="py-4 px-6">
+                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:red-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Remove</button>
                 </td>
             </tr>
         </tbody>
