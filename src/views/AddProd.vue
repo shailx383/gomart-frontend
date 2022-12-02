@@ -32,9 +32,18 @@
             
       <h2 class="sr-only">Product information</h2>
       <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Price</label>
-            <textarea v-model="product.price"  type="number" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Enter Price Here"></textarea>
+            <input v-model="product.price"  type="number" id="price" min="0" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "/>
 
+            <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Quantity</label>
+            <input v-model="product.quantity"  type="number" id="quan" min="0" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "/>
 
+            <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Delivery Time</label>
+            <input v-model="product.deliveryTime"  type="number" id="del" min="0" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""/>
+
+            <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Offer</label>
+            <input v-model="product.offer"  min="0" max= "100" type="number" id="offer" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""/>
+
+            
       <form class="mt-10">
 
       <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add Product</button>
@@ -58,6 +67,7 @@
       
 </div>
 </div>
+
 <Footer></Footer>
 </template>
 
@@ -75,16 +85,19 @@ export default{
             visible:false,
             previewImage:null,
             product : {
-            name: '',
-            price: '',
-            href: '#',
-            images: [
-            {
-            src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
-            alt: 'Two each of gray, white, and black shirts laying flat.',
-            },
-            ],
-            description:''
+                  name: '',
+                  price: '',
+                  href: '#',
+                  images: [
+                  {
+                  src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
+                  alt: 'Two each of gray, white, and black shirts laying flat.',
+                  },
+                  ],
+                  description:'',
+                  quantity: '',
+                  deliveryTime: '',
+                  offer: ''
             }
       }
       },
