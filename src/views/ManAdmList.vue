@@ -101,7 +101,10 @@
                     Email
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Role
+                    Address
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Phone Number
                 </th>
                 <th scope="col" class="py-3 px-6">
                     <span class="sr-only">Edit</span>
@@ -117,10 +120,13 @@
                     {{manager.email}}
                 </td>
                 <td class="py-4 px-6">
-                    Manager
+                    {{manager.address}}
                 </td>
                 <td class="py-4 px-6">
-                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:red-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Remove</button>
+                    {{manager.phone}}
+                </td>
+                <td class="py-4 px-6">
+                    <button @click="declineManager(manager.userId)" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:red-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Remove</button>
                 </td>
             </tr>
         </tbody>
@@ -145,7 +151,10 @@
                     Email
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Applying For
+                    Address
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Phone Number
                 </th>
                 <th scope="col" class="py-3 px-6">
                     <span class="sr-only">Edit</span>
@@ -164,13 +173,16 @@
                     {{manager.email}}
                 </td>
                 <td class="py-4 px-6">
-                    Manager
+                    {{manager.address}}
                 </td>
                 <td class="py-4 px-6">
-                    <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" >Approve</button>
+                    {{manager.phone}}
                 </td>
                 <td class="py-4 px-6">
-                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:red-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Reject</button>
+                    <button type="button" @click="approveManager(manager.userId)" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" >Approve</button>
+                </td>
+                <td class="py-4 px-6">
+                    <button type="button" @click="declineManager(manager.userId)" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:red-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Reject</button>
                 </td>
             </tr>
         </tbody>
@@ -208,6 +220,15 @@ export default{
       showModal1(){
         this.modal_shown1 = !this.modal_shown1
       },
+      approveManager(id){
+        axios.post('https://gomart-production.up.railway.app/admin/addManager', {senderId: localStorage.logged, userId: id})
+          .then(window.location.reload())
+      },
+      declineManager(id){
+        axios.post('https://gomart-production.up.railway.app/admin/removeManager', {senderId: localStorage.logged, userId: id})
+          .then(window.location.reload())
+      },  
+
   },
   mounted(){
     axios.post('https://gomart-production.up.railway.app/admin/managers', {senderId: localStorage.logged})

@@ -15,9 +15,9 @@
             <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
             <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
           </div>
-          <div class="hidden sm:ml-6 sm:block">
+          <div class="sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <p>Admin Dashboard</p>
+              <h2 text-lg>Admin Dashboard</h2>
             </div>
           </div>
 
@@ -55,28 +55,22 @@
     </div>
   </Disclosure>
 
+  <div class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <a href="/manadmlist" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+        Managers
+    </a>
+    <a href="#" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+        Reports
+    </a>
+    <a href="/addprod" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+        Add Product
+    </a>
+    <a href="/editprod" class="block py-2 px-4 w-full rounded-b-lg cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+        Edit Product
+    </a>
+</div>
+
   
-
-
-  <div class="inline-flex rounded-md shadow-sm">
-    <button @click="triggerList" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Extra large</button>
-    <button @click="triggerReport" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Extra large</button>
-    <button @click="triggerAdd" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Extra large</button>
-    <button @click="triggerEdit" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Extra large</button>
-</div>
-
-<div v-if="(content === 1)">
-    <ManAdmList></ManAdmList>
-</div>
-<div v-if="(content === 2)">
-    
-</div>
-<div v-if="(content === 3)">
-    <AddProd></AddProd>
-</div>
-<div v-if="(content === 4)">
-    <EditProd></EditProd>
-</div>
 </template>
 
 <script>
@@ -92,26 +86,12 @@ export default {
     components: {EditProd, AddProd, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
     data(){
         return {
-            content: 0,
         }
     },
     mehtods: {
         logoutUser(){
             axios.post('https://gomart-production.up.railway.app/user/logout', {"userId": localStorage.logged})
         },
-        triggerList(){
-            console.log(this.content)
-            this.content = 1
-        },
-        triggerReport(){
-            this.content = 2
-        },
-        triggerAdd(){
-            this.content = 3
-        },
-        triggerEdit(){
-            this.content = 4
-        }
     }
 }
 </script>
