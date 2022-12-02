@@ -108,8 +108,8 @@ export default{
                 category: '',
                 deliveryTime: 0,
                 offer: 0,
+                image: ''
             },
-            image: '',
             visible: false,
             previewImage: null,
             show: false
@@ -122,15 +122,16 @@ export default{
             reader.readAsDataURL(image);
             reader.onload = e =>{
                 this.previewImage = e.target.result;
-                this.image = this.previewImage.slice(23,);
+                this.product.image = this.previewImage.slice(23,);
                 this.visible=true;
-                console.log(this.image);
+                console.log(this.productimage);
             };
             
         },
         addProduct(){
              axios.post('https://gomart-production.up.railway.app/admin/addProduct', {senderId: localStorage.logged, product: this.product})
                  //.then(resp => (this.saveImage(resp.data)))
+                 .then(this.showSuccess())
         },
         saveImage(id){
             axios.post('https://gomart-production.up.railway.app/manager/saveImage', {productId: id, file: this.image, userId: localStorage.logged})
