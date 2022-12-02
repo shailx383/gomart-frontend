@@ -17,7 +17,7 @@
           </div>
           <div class="sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <h2 text-lg>Admin Dashboard</h2>
+              <h2 class="text-lg text-white">Admin Dashboard</h2>
             </div>
           </div>
 

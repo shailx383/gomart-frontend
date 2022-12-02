@@ -4,7 +4,7 @@
       <div class="w-full max-w-md space-y-8">
         <div>
           <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-          <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Reset Password</h2>
+          <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Change Password</h2>
   
         </div>
         <form @submit.prevent="reset" class="mt-8 space-y-6" action="#" method="POST">
@@ -23,7 +23,7 @@
   
           <div>
             <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-              Reset Password
+              Change Password
             </button>
           </div>
         </form>
@@ -47,6 +47,10 @@
       methods:{
           reset(){
               axios.post('https://gomart-production.up.railway.app/user/changePassword',{userId:localStorage.logged,oldPassword:this.passwords.oldpass, newPassword:this.passwords.newpass})
+                .then(this.goToLogin)
+          },
+          goToLogin(){
+            this.$router.push('/')
           }
       }
    }

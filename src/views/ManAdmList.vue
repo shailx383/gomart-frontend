@@ -17,7 +17,7 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <p>Managers</p>
+              <p class="text-lg text-white">Managers</p>
             </div>
           </div>
 
