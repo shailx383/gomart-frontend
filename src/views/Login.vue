@@ -106,7 +106,8 @@ export default {
                             this.logged = response.data.userId;
                             this.logging(response.data.role);
                             }) 
-        .catch(error => {this.error = error.response.data.message;
+        .catch(error => { console.log(error)
+                          this.error = error.response.data.message;
                           if (this.error =='User does not exist'){
                             this.userError()
                           }

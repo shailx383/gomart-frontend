@@ -220,13 +220,14 @@ export default{
       showModal1(){
         this.modal_shown1 = !this.modal_shown1
       },
-      approveManager(id){
-        axios.post('https://gomart-production.up.railway.app/admin/addManager', {senderId: localStorage.logged, userId: id})
-          .then(window.location.reload())
+      async approveManager(id){
+        const resp = await axios.post('https://gomart-production.up.railway.app/admin/addManager', {senderId: localStorage.logged, userId: id})
+          window.location.reload()
       },
-      declineManager(id){
-        axios.post('https://gomart-production.up.railway.app/admin/removeManager', {senderId: localStorage.logged, userId: id})
-          .then(window.location.reload())
+      async declineManager(id){
+         const resp = await axios.post('https://gomart-production.up.railway.app/admin/removeManager', {senderId: localStorage.logged, userId: id})
+         window.location.reload()
+         // .then(window.location.reload())
       },  
 
   },
