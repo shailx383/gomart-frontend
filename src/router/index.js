@@ -16,6 +16,8 @@ import PastOrders from '../views/PastOrders.vue'
 import ProductSearchByCategory from '../views/ProductSearchByCategory.vue'
 import MainMan from '../views/MainMan.vue'
 import MainAdm from '../views/MainAdm.vue'
+import Report from '../views/Report.vue'
+import CustomerList from '../views/CustomerList.vue'
 
 
 const routes = [
@@ -123,6 +125,18 @@ const routes = [
     path: '/mainadm',
     name: 'mainmadm',
     component: MainAdm,
+    props: true
+  },
+  {
+    path: '/customerlist',
+    name: 'customerlist',
+    component: CustomerList,
+    props: true
+  },
+  {
+    path: '/report',
+    name: 'report',
+    component: Report,
     props: true
   }
 ]
