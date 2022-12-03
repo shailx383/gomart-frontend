@@ -73,7 +73,7 @@
                 </MenuItem>
 
                 <MenuItem v-slot="{ active }">
-                  <a href="/" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Change Passowrd</a>
+                  <a href="/rstpass" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Change Password</a>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
                   <a @click= "logoutUser" href="/" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
