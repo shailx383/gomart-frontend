@@ -17,7 +17,9 @@
           </div>
           <div class="sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <h2 class="text-lg text-white">Admin Dashboard</h2>
+              <h2 class="text-lg text-white pt-1">Admin Dashboard</h2>
+              <router-link to="/customerlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Reports</router-link>
+              <router-link to="/manadmlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Managers</router-link>
             </div>
           </div>
 
@@ -55,20 +57,7 @@
     </div>
   </Disclosure>
 
-  <div class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <a href="/manadmlist" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-        Managers
-    </a>
-    <a href="/customerlist" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-        Reports
-    </a>
-    <a href="/addprod" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-        Add Product
-    </a>
-    <a href="/editprod" class="block py-2 px-4 w-full rounded-b-lg cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-        Edit Product
-    </a>
-</div>
+  <ProductList></ProductList>
 
   
 </template>
@@ -80,10 +69,11 @@ import Footer from '../components/Footer.vue'
 import ManAdmList from '../views/ManAdmList.vue'
 import AddProd from '../views/AddProd.vue'
 import EditProd from '../views/EditProd.vue'
+import ProductList from '../components/ProductList.vue'
 
 export default {
     name: 'MainAdm',
-    components: {EditProd, AddProd, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
+    components: {ProductList, EditProd, AddProd, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
     data(){
         return {
         }

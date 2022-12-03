@@ -100,12 +100,15 @@
                 },
                 changedesc(e){
                   this.product.description=e.target.innerText
+                  console.log(this.product.description)
                 },
                 changeprice(e){
                   this.product.price=e.target.innerText
+                  console.log(this.product.price)
                 },
                 changename(e){
-                  this.product.name=e.target.innerText
+                  this.product.name=e.target.
+                  console.log(this.product.name)
                 }
           }
     

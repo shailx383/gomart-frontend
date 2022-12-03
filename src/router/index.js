@@ -5,7 +5,7 @@ import Product from '../views/Product.vue'
 import Account from '../views/Account.vue'
 import Main from '../views/Main.vue'
 import AddProd from '../views/AddProd_new.vue'
-import EditProd from '../views/EditProd.vue'
+import EditProd from '../views/EditProd_new.vue'
 import ManAdmApply from '../views/ManAdmApply.vue'
 import ProductSearch from '../views/ProductSearch.vue'
 import ManAdmList from '../views/ManAdmList.vue'
@@ -137,6 +137,12 @@ const routes = [
     path: '/report/:id',
     name: 'report',
     component: Report,
+    props: true
+  },
+  {
+    path: '/productedit/:id',
+    name: 'productedit',
+    component: EditProd,
     props: true
   }
 ]
