@@ -196,10 +196,6 @@ export default{
                  //.then(resp => (this.saveImage(resp.data)))
                  .then(this.showSuccess())
         },
-        saveImage(id){
-            axios.post('https://gomart-production.up.railway.app/manager/saveImage', {productId: id, file: this.image, userId: localStorage.logged})
-                .then(this.showSuccess())
-        },
         showSuccess(){
             this.show = !this.show
         }

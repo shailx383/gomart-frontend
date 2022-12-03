@@ -18,7 +18,7 @@
          <div class="sm:ml-6 sm:block">
            <div class="flex space-x-4">
              <h2 class="text-lg text-white pt-1">Manager Dashboard</h2>
-             <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link>
+             <router-link to="/addprodman" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link>
            </div>
          </div>
 
@@ -57,7 +57,7 @@
  </Disclosure>
 
  
-   <ProductList></ProductList>
+<ProductListMan></ProductListMan>
 
 
  
@@ -68,13 +68,13 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import Footer from '../components/Footer.vue'
 import ManAdmList from '../views/ManAdmList.vue'
-import AddProd from '../views/AddProd.vue'
-import EditProd from '../views/EditProd.vue'
-import ProductList from '../components/ProductList.vue'
+import AddProdMan from '../views/AddProdMan.vue'
+import EditProdMan from '../views/EditProdMan.vue'
+import ProductListMan from '../components/ProductListMan.vue'
 
 export default {
    name: 'MainAdm',
-   components: {ProductList, EditProd, AddProd, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
+   components: {ProductListMan, EditProdMan, AddProdMan, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
    data(){
        return {
        }
