@@ -19,7 +19,7 @@
          <div class="sm:ml-6 sm:block">
            <div class="flex space-x-4">
              <h2 class="text-lg text-white pt-1">Product by Date</h2>
-             <!-- <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link> -->
+             <router-link to="/mainadm" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Main Menu</router-link>
            </div>
          </div>
 

@@ -19,6 +19,7 @@ import MainAdm from '../views/MainAdm.vue'
 import Report from '../views/Report.vue'
 import CustomerList from '../views/CustomerList.vue'
 import prodbydate from '../views/prodbydate.vue'
+import OrdersByDate from '../views/OrdersByDate.vue'
 
 
 const routes = [
@@ -150,6 +151,12 @@ const routes = [
     path: '/prodbydate',
     name: 'prodbydate',
     component: prodbydate,
+    props: true
+  },
+  {
+    path: '/ordersbydate/:start/:end',
+    name: 'ordersbydate',
+    component: OrdersByDate,
     props: true
   }
 ]
