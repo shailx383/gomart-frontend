@@ -1,6 +1,6 @@
 <template>
     <Navbar></Navbar>
-    <h1 class="text-lg text-black">Transaction reports from past month:</h1>
+    <h2 class="text-4xl pt-4 pb-4 font-extrabold dark:text-white">Transaction reports of {{this.$route.params.name}} in the past month:</h2>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -68,6 +68,7 @@ export default {
   mounted(){
     axios.post('https://gomart-production.up.railway.app/admin/report', {senderId: localStorage.logged, userId: this.$route.params.id, startDate:'2022-11-22', endDate:'2022-12-02'})
         .then(response => this.orders = response.data);
+
     },
 }
 </script>

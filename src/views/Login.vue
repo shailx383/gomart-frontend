@@ -1,4 +1,5 @@
 <template>
+  <t-card>
   <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md space-y-8">
       <div>
@@ -77,6 +78,7 @@
     </div>
     </div>
     <div v-if="showForgot" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+  </t-card>
 </template>
 
 <script>

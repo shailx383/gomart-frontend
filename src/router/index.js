@@ -134,7 +134,7 @@ const routes = [
     props: true
   },
   {
-    path: '/report/:id',
+    path: '/report/:id/:name',
     name: 'report',
     component: Report,
     props: true
