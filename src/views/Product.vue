@@ -2,7 +2,7 @@
   <Navbar></Navbar>
   <!-- <Cart></Cart> -->
 
-<div class="bg-white">
+<div class="bg-white" v-cloak>
   <div class="pt-6">
 
 
@@ -117,3 +117,9 @@
   }
 
 </script>
+
+<style>
+[v-cloak] {
+  display: none !important;
+}
+</style>

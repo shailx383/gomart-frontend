@@ -102,9 +102,9 @@ export default {
         }
     },
     methods: {
-      remove(id){
+      async remove(id){
         console.log(id)
-        axios.post('https://gomart-production.up.railway.app/user/cart', {productId: id, userId: localStorage.logged})
+        const resp = await axios.post('https://gomart-production.up.railway.app/user/cart', {productId: id, userId: localStorage.logged})
         window.location.reload()
       },
       total(){
