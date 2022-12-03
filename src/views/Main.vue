@@ -1,6 +1,6 @@
 <template>
     <Navbar></Navbar>
-    <div>
+    <div class="max-h-15">
         <Carousel></Carousel>
     </div>
     <div class="bg-gray-100">
