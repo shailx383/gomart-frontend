@@ -1,8 +1,9 @@
 <template>
     <Navbar></Navbar>
-
+        
     
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <h2 class="text-4xl font-extrabold dark:text-white pt-4 pb-4">Past Orders:</h2>
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
