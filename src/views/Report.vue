@@ -1,6 +1,6 @@
 <template>
     <Navbar></Navbar>
-    <h2 class="text-4xl pt-4 pb-4 font-extrabold dark:text-white">Transaction reports of {{this.$route.params.name}} in the past month:</h2>
+    <h2 class="text-2xl pt-4 font-mono pl-3 pb-4 font-bold text-black">Transaction reports of {{this.$route.params.name}} in the past month:</h2>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

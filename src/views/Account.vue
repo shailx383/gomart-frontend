@@ -24,7 +24,9 @@
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Phone number</dt>
             <dd contenteditable @input="changePhone" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{account_info.phoneNumber}}</dd>
-            <button @click="editInfo" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Update Profile</button>
+             
+              <button @click="editInfo" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5  py-2.5 mb-4 mt-4 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Update Profile</button>
+            
             <div v-if="edit" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
               <UpdateUser></UpdateUser>
     </div>
@@ -43,7 +45,9 @@
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Current Balance:</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">₹{{ewallet.amount}}</dd>
-            <button @click = "showModal" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" data-modal-toggle="wallet-modal" >Add money</button>
+            <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+              <button @click = "showModal" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" data-modal-toggle="wallet-modal" >Add money</button>
+            </div>
             <div v-if="modal_shown" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
               <div class="relative w-full max-w-md h-full md:h-auto">
         <!-- Modal content -->
@@ -60,7 +64,13 @@
           </div>
         </div>
         </div>
-        <button @click="applyManager" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Apply as manager</button>
+
+        
+      <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+
+        <button @click="applyManager" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 right-20">Apply as manager</button>
+      </div>
+        
 
         <div v-if="applied_shown" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
               <div class="relative w-full max-w-md h-full md:h-auto">

@@ -70,8 +70,8 @@ export default {
     href: '/prodsearchbycat/3',
   },
   {
-    name: 'Miscellanious',
-    description: 'Miscellanious',
+    name: 'Miscellaneous',
+    description: 'Miscellaneous',
     imageSrc: 'https://media.istockphoto.com/id/499481514/photo/shopping-basket-with-body-care-and-beauty-products-over-white.jpg?s=612x612&w=0&k=20&c=5CW3Xg2Ax3Y5oihshVkKhpRyCGCTmuRDqSAbhR2HXw8=',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '/prodsearchbycat/4',
