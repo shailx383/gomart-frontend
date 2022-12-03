@@ -1,4 +1,6 @@
 <template>
+
+  
      <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
@@ -12,12 +14,13 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+
+            <img  class="img max-h-8" src="../assets/shop.png" alt="" srcset="">
+             
           </div>
           <div class="sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <h2 class="text-lg text-white pt-1">Admin Dashboard</h2>
+              <h2 class=" font-sansserif text-lg text-white pt-1 ml-3 mr-7"> Dashboard</h2>
               <router-link to="/customerlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Reports</router-link>
               <router-link to="/manadmlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Managers</router-link>
               <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link>

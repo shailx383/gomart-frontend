@@ -12,8 +12,9 @@
        </div>
        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
          <div class="flex flex-shrink-0 items-center">
-           <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-           <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+
+          <img  class="img max-h-8" src="../assets/shop.png" alt="" srcset="">
+            
          </div>
          <div class="sm:ml-6 sm:block">
            <div class="flex space-x-4">
@@ -59,7 +60,7 @@
     <div class="pt-6">
         <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div class="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
-                <div class="flex items-center justify-center w-full">
+                <div class="flex items-center justify-center w-full pt-8">
                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                             <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
@@ -79,7 +80,7 @@
                 <form @submit.prevent="addProduct" class="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" value="true" />
             <div class="-space-y-px rounded-md shadow-sm">
-                <h1>Edit Product:</h1>
+                <h1 class="pt-0">Edit Product:</h1>
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 pt-4 pb-3">Name</label>
                 <input v-model="newProduct.name" id="name" name="name" type="text" autocomplete="" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" :placeholder="oldProduct.name" />

@@ -31,7 +31,7 @@
       <div class="mt-4 lg:row-span-3 lg:mt-0">
             
       <h2 class="sr-only">Product information</h2>
-      <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Price</label>
+      <label for="message" class="block mb-2  text-sm font-large text-gray-900 dark:text-white">Add Price</label>
             <input v-model="product.price"  type="number" id="price" min="0" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" "/>
 
             <label for="message" class="block mb-2 text-sm font-large text-gray-900 dark:text-white">Add Quantity</label>
