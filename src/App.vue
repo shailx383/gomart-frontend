@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Login</router-link> |
+    <!-- <router-link to="/">Login</router-link> |
     <router-link to="/signup">Sign up</router-link> |
     <router-link to="/product">Product</router-link> |
     <router-link to="/manadmapply">Apply</router-link> |
@@ -9,7 +9,7 @@
     <router-link to="/rstpass">Reset Password</router-link> |
     <router-link to="/PastOrders">Past Orders</router-link> |
     <router-link to="/report">Reports</router-link> |
-    <router-link to="/customerlist">Customer List</router-link> |
+    <router-link to="/customerlist">Customer List</router-link> | -->
     <!-- <router-link to="/viewprof">View Profile</router-link> -->
   </nav>
   <Test></Test>
