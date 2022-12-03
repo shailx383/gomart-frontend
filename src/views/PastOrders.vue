@@ -1,8 +1,13 @@
 <template>
     <Navbar></Navbar>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <h2 class="text-4xl font-sensserif text-black pt-10 pb-10 text-center ">Past Orders:</h2>
-            <button type="button" @click="OrderPopUp()" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Get orders in date range</button>
+            <h2 class="text-4xl font-sensserif text-black pt-10  text-center ">Past Orders:</h2>
+
+            <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+
+                
+                <button type="button" @click="OrderPopUp()" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mb-2 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">Get orders in date range</button>
+            </div>
 
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

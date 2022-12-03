@@ -67,7 +67,11 @@
     </table>
 </div>
 <div class = "justify-center">
-<button @click="placeOrder" type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Place Order</button>
+<div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+
+
+    <button @click="placeOrder" type="button" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">Place Order</button>
+</div>
 </div>
 <div v-if="error_shown" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
               <div class="relative w-full max-w-md h-full md:h-auto">
