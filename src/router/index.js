@@ -18,6 +18,7 @@ import MainMan from '../views/MainMan.vue'
 import MainAdm from '../views/MainAdm.vue'
 import Report from '../views/Report.vue'
 import CustomerList from '../views/CustomerList.vue'
+import prodbydate from '../views/prodbydate.vue'
 
 
 const routes = [
@@ -143,6 +144,12 @@ const routes = [
     path: '/productedit/:id',
     name: 'productedit',
     component: EditProd,
+    props: true
+  },
+  {
+    path: '/prodbydate',
+    name: 'prodbydate',
+    component: prodbydate,
     props: true
   }
 ]
