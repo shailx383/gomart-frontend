@@ -18,6 +18,12 @@
                         <th scope="col" class="py-3 px-6">
                             Price
                         </th>
+                        <th scope="col" class="py-3 px-6">
+                            Date Ordered
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Date Expected
+                        </th>
                     </tr>
                 </thead>
                 <tbody v-for="order in orders" :key="order.transactionId">
@@ -33,6 +39,12 @@
                         </td>
                         <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                             ₹{{(order.product.price*order.quantity)}}
+                        </td>
+                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                            {{order.orderDate}}
+                        </td>
+                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                            {{addDate(order.orderDate, order.product.deliveryTime)}}
                         </td>
                     </tr>
                 </tbody>
@@ -54,8 +66,14 @@ export default {
     orders:[]
     }
   },
-
   components: {Navbar,Footer},
+  methods: {
+    addDate(date, days){
+        var result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result.toISOString().slice(0,10);
+    }
+  },
   mounted(){
     axios.get('https://gomart-production.up.railway.app/user/'+localStorage.logged.toString()+'/orders')
         .then(response => {

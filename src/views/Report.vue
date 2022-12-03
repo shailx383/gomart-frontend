@@ -1,6 +1,8 @@
 <template>
     <Navbar></Navbar>
+    <h1 class="text-lg text-black">Transaction reports from past month:</h1>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -8,13 +10,16 @@
                     <span class="sr-only">Image</span>
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Product
+                            Product ordered
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Qty
+                            Quantity Bought
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Price
+                            Total Price
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Date Ordered
                         </th>
                     </tr>
                 </thead>
@@ -31,6 +36,9 @@
                         </td>
                         <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                             ₹{{order.product.price*order.quantity}}
+                        </td>
+                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                            {{order.orderDate}}
                         </td>
                     </tr>
                 </tbody>
@@ -58,7 +66,7 @@ export default {
 
   components: {Navbar,Footer},
   mounted(){
-    axios.post('https://gomart-production.up.railway.app/admin/report', {senderId: localStorage.logged, userId: id, startDate:'2022-11-22', endDate:'2022-12-02'})
+    axios.post('https://gomart-production.up.railway.app/admin/report', {senderId: localStorage.logged, userId: this.$route.params.id, startDate:'2022-11-22', endDate:'2022-12-02'})
         .then(response => this.orders = response.data);
     },
 }
