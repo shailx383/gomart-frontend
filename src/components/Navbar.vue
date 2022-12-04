@@ -23,10 +23,22 @@
             
           </div>
           <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
+            <div v-if="isCustomer()" class="flex space-x-4">
               <router-link to="/main" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Shopping</router-link>
               <!-- <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">AddProd</router-link>
               <router-link to="/editprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">EditProd</router-link> -->
+            </div>
+            <div v-if="isManager()" class="flex space-x-4">
+              <router-link to="/mainman" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Manager Dashboard</router-link>
+              <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link>
+              <router-link to="/main" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Shopping</router-link>
+            </div>
+            <div v-if="isAdmin()" class="flex space-x-4">
+              <router-link to="/mainadm" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Admin Dashboard</router-link>
+              <router-link to="/manadmlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Managers</router-link>
+              <router-link to="/customerlist" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Reports</router-link>
+              <router-link to="/addprod" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Add Product</router-link>
+              <router-link to="/main" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']">Shopping</router-link>
             </div>
           </div>
 
@@ -112,7 +124,8 @@ export default{
   { name: 'EditProd', href: '/editprod', current: false },
   ],
   products: [],
-  searchName: ''
+  searchName: '',
+  role: ''
   }
   },
   methods:{
@@ -124,7 +137,20 @@ export default{
     },
     onSearch(){
       this.$router.push({path: "/prodsearch/"+this.searchName})
-    }
+    },
+    isAdmin(){
+    return (this.role == 'ADMIN')
+    },
+    isManager(){
+      return (this.role == 'MANAGER')
+    },
+    isCustomer(){
+      return (this.role == 'CUSTOMER')
+    },
+  },
+  mounted(){
+    axios.get('https://gomart-production.up.railway.app/user/'+localStorage.logged.toString())
+      .then(response => {this.role = response.data.role})
   }
 }
 
