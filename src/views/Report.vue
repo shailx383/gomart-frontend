@@ -140,7 +140,6 @@
 								<MenuItem v-slot="{ active }">
 									<a
 										@click="logoutUser"
-										href="/"
 										:class="[
 											active ? 'bg-gray-100' : '',
 											'block px-4 py-2 text-sm text-gray-700',
@@ -242,7 +241,18 @@ export default {
 			orders: [],
 		};
 	},
-	methods: {},
+	methods: {
+		async logoutUser() {
+			await axios.post(
+				"https://gomart-production.up.railway.app/user/logout",
+				{
+					userId: localStorage.logged,
+				},
+			);
+			localStorage.removeItem("logged");
+			this.$router.push("/");
+		},
+	},
 
 	components: {
 		ProductList,
