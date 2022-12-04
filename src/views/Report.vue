@@ -131,7 +131,7 @@ export default {
 
   components: {ProductList, EditProd, AddProd, ManAdmList, Footer, Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Bars3Icon, BellIcon, XMarkIcon},
   mounted(){
-    axios.post('https://gomart-production.up.railway.app/admin/report', {senderId: localStorage.logged, userId: this.$route.params.id, startDate:'2022-11-22', endDate:'2022-12-02'})
+    axios.post('https://gomart-production.up.railway.app/admin/report', {senderId: localStorage.logged, userId: this.$route.params.id, startDate:'2022-11-22', endDate:'2022-12-31'})
         .then(response => this.orders = response.data);
 
     },
