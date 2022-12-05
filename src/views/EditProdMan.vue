@@ -342,7 +342,7 @@
 						<br />
 						<button
 							type="button"
-							@click="deleteProduct()"
+							@click="deleteProduct"
 							class="group relative flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
 						>
 							Delete Product
@@ -507,13 +507,17 @@ export default {
 		showSuccess() {
 			this.show = !this.show;
 		},
-		deleteProduct() {
-			axios
-				.post(
-					"https://gomart-production.up.railway.app/manager/deleteProduct",
-					{ senderId: localStorage.logged, product: this.oldProduct },
-				)
-				.then(this.showDeletion());
+		async deleteProduct() {
+			await axios.post(
+				"https://gomart-production.up.railway.app/manager/deleteProduct",
+				{
+					senderId: localStorage.logged,
+					product: {
+						productId: this.oldProduct.productId,
+					},
+				},
+			);
+			this.showDeletion();
 		},
 		showDeletion() {
 			this.show_d = !this.show_d;
