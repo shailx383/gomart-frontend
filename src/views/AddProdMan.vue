@@ -419,7 +419,6 @@ export default {
 				this.previewImage = e.target.result;
 				this.product.image = this.previewImage.slice(23);
 				this.visible = true;
-				console.log(this.productimage);
 			};
 		},
 		async logoutUser() {

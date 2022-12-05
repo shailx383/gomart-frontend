@@ -162,7 +162,6 @@ export default {
 					this.purchase,
 				)
 				.then((response) => {
-					console.log(this.purchase);
 					this.addedToCart();
 				});
 		},

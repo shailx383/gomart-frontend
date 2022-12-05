@@ -266,10 +266,8 @@ export default {
 					this.signup_data,
 				)
 				.then((response) => {
-					console.log(response);
 					this.addMoney();
-				})
-				.catch((error) => console.log(error));
+				});
 		},
 		addMoney() {
 			this.addmoney = !this.addmoney;

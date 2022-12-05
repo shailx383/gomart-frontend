@@ -298,14 +298,12 @@ export default {
 			location.reload();
 		},
 		async datesearch(date) {
-			console.log(date);
 			const resp = await axios
 				.post(
 					"https://gomart-production.up.railway.app/admin/report/date",
 					{ senderId: localStorage.logged, startDate: date },
 				)
 				.then((response) => {
-					console.log(response.data);
 					this.orders = response.data;
 					//window.location.reload()
 				});
@@ -328,7 +326,6 @@ export default {
 				{ senderId: localStorage.logged, startDate: this.date },
 			)
 			.then((response) => {
-				console.log(response.data);
 				this.orders = response.data;
 			});
 	},

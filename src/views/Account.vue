@@ -303,7 +303,6 @@ export default {
 			.then((response) => {
 				this.account_info = response.data;
 
-				console.log(response.data);
 				this.customer_info = response.data.customer;
 				this.ewallet = this.customer_info.wallet;
 			});

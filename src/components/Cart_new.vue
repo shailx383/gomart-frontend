@@ -254,7 +254,6 @@ export default {
 	},
 	methods: {
 		async remove(id) {
-			console.log(id);
 			const resp = await axios.post(
 				"https://gomart-production.up.railway.app/user/cart",
 				{ productId: id, userId: localStorage.logged },

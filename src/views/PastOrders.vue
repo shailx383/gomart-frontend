@@ -149,7 +149,6 @@ export default {
 					"/orders",
 			)
 			.then((response) => {
-				console.log(response.data);
 				this.orders = response.data;
 			});
 	},
