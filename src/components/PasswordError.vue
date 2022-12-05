@@ -21,7 +21,7 @@ return{
 },
 methods: {
 goToAccount(){
-    this.$router.push('/')
+    this.$router.push('/login')
 }
 }
 }

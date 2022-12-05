@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Product from '../views/Product.vue'
+import ProductNotLogged from '../views/ProductNotLogged.vue'
 import Account from '../views/Account.vue'
 import Main from '../views/Main.vue'
 import AddProd from '../views/AddProd.vue'
@@ -22,11 +23,21 @@ import prodbydate from '../views/prodbydate.vue'
 import OrdersByDate from '../views/OrdersByDate.vue'
 import AddProdMan from '../views/AddProdMan.vue'
 import EditProdMan from '../views/EditProdMan.vue'
+import MainNotLogged from '../views/MainNotLogged.vue'
+import ProductSearchNotLogged from '../views/ProductSearchNotLogged'
+import PSBCNL from '../views/PSBCNL.vue'
+
 
 
 const routes = [
   {
     path: '/',
+    name: 'mainnotlogged',
+    component: MainNotLogged,
+    props: true
+  },
+  {
+    path: '/login',
     name: 'login',
     component: Login,
     props: true
@@ -172,7 +183,25 @@ const routes = [
     name: 'editprodman',
     component: EditProdMan,
     props: true
-  }
+  },
+  {
+    path: '/prodsearchnotlogged/:search',
+    name: 'prodsearchnotlogged',
+    component: ProductSearchNotLogged,
+    props: true
+  },
+  {
+    path: '/psbcnl/:cat',
+    name: 'psbcnl',
+    component: PSBCNL,
+    props: true
+  },
+  {
+    path: '/productnotlogged/:id',
+    name: 'productnotlogged',
+    component: ProductNotLogged,
+    props: true
+  },
 ]
 
 

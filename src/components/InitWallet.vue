@@ -81,7 +81,7 @@ export default {
 				.then(this.gotoLogin());
 		},
 		gotoLogin() {
-			this.$router.push("/");
+			this.$router.push("/login");
 		},
 	},
 };

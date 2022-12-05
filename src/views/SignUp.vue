@@ -211,7 +211,7 @@ export default {
 				<div class="flex items-center justify-between">
 					<div class="text-sm">
 						<a
-							href="/"
+							href="/login"
 							class="font-medium text-indigo-600 hover:text-indigo-500"
 							>Already have an account?</a
 						>
