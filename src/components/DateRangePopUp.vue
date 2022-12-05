@@ -1,7 +1,7 @@
 <template>
 	<div class="py-6 px-6 lg:px-8">
 		<h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-			Top-up wallet:
+			Enter date range:
 		</h3>
 		<form @submit.prevent="showOrders()" class="space-y-6" action="#">
 			<div>
