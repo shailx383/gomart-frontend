@@ -111,9 +111,6 @@ export default {
 			)
 			.then((response) => {
 				this.edit_info = response.data;
-			})
-			.catch((error) => {
-				console.log(error);
 			});
 	},
 	methods: {
