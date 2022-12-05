@@ -5,7 +5,7 @@
 			class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
 		>
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">
-				Results for {{ searchName }} ({{product.length}}):
+				Results for {{ searchName }} ({{dash}}):
 			</h2>
 
 			<div
@@ -61,19 +61,22 @@ import Footer from "../components/Footer.vue";
 export default {
 	name: "ProductSearchNotLogged",
 	components: { NotLoggedNavbar, Footer },
+	props: ['dash'],
 	data() {
 		return {
 			searchName: this.$route.params.search,
 			product: [],
+			dash: 'Loading...'
 		};
 	},
-	mounted() {
-		axios
+	async mounted() {
+		const response = await axios
 			.get(
 				"https://gomart-production.up.railway.app/user/products/name/" +
 					this.searchName,
 			)
-			.then((response) => (this.product = response.data));
+			this.product = response.data;
+			this.dash = this.product.length;
 	},
 	methods() {
 		showProduct(p_id);
