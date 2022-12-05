@@ -4,7 +4,7 @@
 			class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
 		>
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">
-				All Products:
+				{{dash}}
 			</h2>
 
 			<div
@@ -63,15 +63,18 @@ import Footer from "./Footer.vue";
 export default {
 	name: "ProductListMan",
 	components: { Navbar, Footer },
+	props: ['dash'],
 	data() {
 		return {
 			product: [],
+			dash: 'Loading products...'
 		};
 	},
-	mounted() {
-		axios
+	async mounted() {
+		const response = await axios
 			.get("https://gomart-production.up.railway.app/user/products")
-			.then((response) => (this.product = response.data));
+			this.product = response.data;
+			this.dash = 'All Products:'
 	},
 	methods() {
 		editProduct(p_id);
