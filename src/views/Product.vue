@@ -32,7 +32,7 @@
 					<div class="mt-4 lg:row-span-3 lg:mt-0">
 						<h2 class="sr-only">Product information</h2>
 						<p class="text-3xl tracking-tight text-gray-900">
-							₹{{ product.price }}
+							₹{{product.price*(1- product.offer/100) }}  <strike v-if="checkoffer(product.offer)"> ₹{{ product.price }} </strike>
 						</p>
 
 						<form @submit.prevent="addToCart" class="mt-10">
@@ -167,6 +167,14 @@ export default {
 		},
 		addedToCart() {
 			this.addedShown = !this.addedShown;
+		},
+		checkoffer(x) {
+			if(x==0){
+				return false;
+			}
+			else{
+				return true;
+			}
 		},
 	},
 };

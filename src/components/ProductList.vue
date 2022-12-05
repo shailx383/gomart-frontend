@@ -48,7 +48,7 @@
 							</p>
 						</div>
 						<p class="text-sm font-medium text-gray-900">
-							₹{{ prod.price }}
+							₹{{prod.price*(1- prod.offer/100) }}  <strike v-if="checkoffer(prod.offer)"> ₹{{ prod.price }} </strike>
 						</p>
 					</div>
 				</div>
@@ -76,11 +76,19 @@ export default {
 			this.product = response.data;
 			this.dash = 'All products:'
 	},
-	methods() {
-		editProduct(p_id);
+	methods: {
+		editProduct(p_id)
 		{
 			this.$router.push("/productedit/" + p_id);
-		}
+		},
+		checkoffer(x) {
+			if(x==0){
+				return false;
+			}
+			else{
+				return true;
+			}
+		},
 	},
 };
 </script>
