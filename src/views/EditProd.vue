@@ -472,7 +472,6 @@ export default {
 				this.previewImage = e.target.result;
 				this.oldProduct.image = this.previewImage.slice(23);
 				this.visible = true;
-				console.log(this.oldProduct.image);
 			};
 		},
 		addProduct() {
@@ -522,7 +521,6 @@ export default {
 					this.$route.params.id,
 			)
 			.then((resp) => {
-				console.log("Old: " + resp.data.name);
 				this.oldProduct = resp.data;
 			});
 	},

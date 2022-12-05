@@ -201,7 +201,6 @@ export default {
 				})
 				.catch((error) => {
 					this.error = error.response.data.message;
-					console.log(this.error);
 					if (this.error == "Insufficient balance") {
 						this.showError();
 					}
