@@ -190,8 +190,8 @@ export default {
 		showError() {
 			this.error_shown = !this.error_shown;
 		},
-		placeOrder() {
-			axios
+		async placeOrder() {
+			await axios
 				.post(
 					"https://gomart-production.up.railway.app/user/cart/checkout",
 					{ userId: localStorage.logged },
@@ -201,8 +201,12 @@ export default {
 				})
 				.catch((error) => {
 					this.error = error.response.data.message;
+					console.log(this.error);
 					if (this.error == "Insufficient balance") {
 						this.showError();
+					}
+					else{
+						alert(this.error)
 					}
 				});
 		},
