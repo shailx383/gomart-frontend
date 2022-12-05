@@ -214,7 +214,7 @@
 									>Name</label
 								>
 								<input
-									v-model="newProduct.name"
+									v-model="oldProduct.name"
 									id="name"
 									name="name"
 									type="text"
@@ -231,7 +231,7 @@
 									>Description</label
 								>
 								<input
-									v-model="newProduct.description"
+									v-model="oldProduct.description"
 									id="desc"
 									name="desc"
 									type="text"
@@ -248,7 +248,7 @@
 									>Price (Old: {{ oldProduct.price }})</label
 								>
 								<input
-									v-model="newProduct.price"
+									v-model="oldProduct.price"
 									id="price"
 									name="price"
 									type="number"
@@ -266,7 +266,7 @@
 									{{ oldProduct.quantity }})</label
 								>
 								<input
-									v-model="newProduct.quantity"
+									v-model="oldProduct.quantity"
 									id="q"
 									name="q"
 									type="number"
@@ -285,7 +285,7 @@
 									{{ oldProduct.category }})</label
 								>
 								<select
-									v-model="newProduct.category"
+									v-model="oldProduct.category"
 									class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 									aria-label="Default select example"
 								>
@@ -304,7 +304,7 @@
 									{{ oldProduct.deliveryTime }})</label
 								>
 								<input
-									v-model="newProduct.deliveryTime"
+									v-model="oldProduct.deliveryTime"
 									id="del"
 									min="0"
 									name="del"
@@ -322,7 +322,7 @@
 									>Offer (Old: {{ oldProduct.offer }})</label
 								>
 								<input
-									v-model="newProduct.offer"
+									v-model="oldProduct.offer"
 									id="offer"
 									name="offer"
 									type="number"
@@ -453,19 +453,9 @@ export default {
 		BellIcon,
 		XMarkIcon,
 	},
+	props: ["oldProduct"],
 	data() {
 		return {
-			newProduct: {
-				productId: this.$route.params.id,
-				name: "",
-				description: "",
-				price: 0,
-				quantity: 0,
-				category: "",
-				deliveryTime: 0,
-				offer: 0,
-				image: "",
-			},
 			oldProduct: {},
 			visible: false,
 			previewImage: null,
@@ -480,16 +470,16 @@ export default {
 			reader.readAsDataURL(image);
 			reader.onload = (e) => {
 				this.previewImage = e.target.result;
-				this.newProduct.image = this.previewImage.slice(23);
+				this.oldProduct.image = this.previewImage.slice(23);
 				this.visible = true;
-				console.log(this.newProduct.image);
+				console.log(this.oldProduct.image);
 			};
 		},
 		addProduct() {
 			axios
 				.post(
 					"https://gomart-production.up.railway.app/admin/updateProduct",
-					{ senderId: localStorage.logged, product: this.newProduct },
+					{ senderId: localStorage.logged, product: this.oldProduct },
 				)
 				//.then(resp => (this.saveImage(resp.data)))
 				.then(this.showSuccess());
