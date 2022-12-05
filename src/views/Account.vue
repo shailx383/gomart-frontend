@@ -202,6 +202,19 @@
 	</div>
 
 	<div
+		v-if="checkNotAdmin()"
+		class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center"
+	>
+		<button
+			@click="deleteAccount()"
+			type="button"
+			class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 right-20"
+		>
+			Delete Account
+		</button>
+	</div>
+
+	<div
 		v-if="applied_shown"
 		class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
 	>
@@ -293,6 +306,13 @@ export default {
 		checkRole() {
 			return this.account_info.role == "CUSTOMER";
 		},
+		checkNotAdmin(){
+			return this.account_info.role != 'ADMIN';
+		},
+		async deleteAccount(){
+			await axios.post('https://gomart-production.up.railway.app/user/deleteAccount', {userId: localStorage.logged});
+			this.$router.push('/');
+		}
 	},
 	mounted() {
 		axios
