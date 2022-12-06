@@ -17,7 +17,6 @@
 				>
 					<dt class="text-sm font-medium text-gray-500">Full name</dt>
 					<dd
-						contenteditable
 						@input="changeName"
 						class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
 					>
@@ -29,7 +28,6 @@
 				>
 					<dt class="text-sm font-medium text-gray-500">Email</dt>
 					<dd
-						contenteditable
 						@input="changeEmail"
 						class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
 					>
@@ -41,7 +39,6 @@
 				>
 					<dt class="text-sm font-medium text-gray-500">Address</dt>
 					<dd
-						contenteditable
 						@input="changeAddress"
 						class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
 					>
@@ -55,7 +52,6 @@
 						Phone number
 					</dt>
 					<dd
-						contenteditable
 						@input="changePhone"
 						class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
 					>

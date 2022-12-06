@@ -111,6 +111,7 @@ export default {
 			)
 			.then((response) => {
 				this.edit_info = response.data;
+				this.edit_info.phoneNumber = this.edit_info.phone;
 			});
 	},
 	methods: {
