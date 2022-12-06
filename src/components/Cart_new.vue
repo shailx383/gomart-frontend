@@ -113,6 +113,11 @@
 																		class="ml-4"
 																	>
 																		₹{{
+																			((100 -
+																				product
+																					.product
+																					.offer) /
+																				100) *
 																			product
 																				.product
 																				.price *
@@ -256,14 +261,19 @@ export default {
 		async remove(id) {
 			const resp = await axios.post(
 				"https://gomart-production.up.railway.app/user/cart",
-				{ productId: id, userId: localStorage.logged },
+				{
+					productId: id,
+					userId: localStorage.logged,
+				},
 			);
 			window.location.reload();
 		},
 		total() {
 			for (let i = 0; i < this.products.length; i++) {
 				this.totalPrice +=
-					this.products[i].product.price * this.products[i].quantity;
+					((100 - this.products[i].product.offer) / 100) *
+					this.products[i].product.price *
+					this.products[i].quantity;
 			}
 		},
 		goToCheckout() {
