@@ -197,7 +197,7 @@
 
 				<div>
 					<form
-						@submit.prevent="addProduct"
+						@submit.prevent="editProduct"
 						class="mt-8 space-y-6"
 						action="#"
 						method="POST"
@@ -472,26 +472,13 @@ export default {
 				this.visible = true;
 			};
 		},
-		addProduct() {
-			axios
+		async editProduct() {
+			await axios
 				.post(
 					"https://gomart-production.up.railway.app/admin/updateProduct",
 					{ senderId: localStorage.logged, product: this.oldProduct },
 				)
-				//.then(resp => (this.saveImage(resp.data)))
-				.then(this.showSuccess());
-		},
-		saveImage(id) {
-			axios
-				.post(
-					"https://gomart-production.up.railway.app/manager/saveImage",
-					{
-						productId: id,
-						file: this.image,
-						userId: localStorage.logged,
-					},
-				)
-				.then(this.showSuccess());
+				this.showSuccess();
 		},
 		showSuccess() {
 			this.show = !this.show;

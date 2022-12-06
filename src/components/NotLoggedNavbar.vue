@@ -370,7 +370,6 @@ export default {
 			this.$router.push("/login");
 		},
 		onSearch() {
-            console.log("yes");
 			this.$router.push("/prodsearchnotlogged/" + this.searchName);
 		},
 		isAdmin() {
