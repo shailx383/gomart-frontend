@@ -131,10 +131,9 @@ export default {
 	},
 	methods: {
 		apply() {
-			axios.post(
-				"https://gomart-production.up.railway.app/user/apply/manager",
-				{ userId: localStorage.logged },
-			);
+			axios.post("http://localhost:8080/user/apply/manager", {
+				userId: localStorage.logged,
+			});
 		},
 	},
 };

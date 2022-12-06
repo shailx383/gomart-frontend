@@ -19,7 +19,9 @@
 						Or
 						{{ " " }}
 						<router-link to="/signup"
-							><a class="text-lg"><u>Create an Account</u></a></router-link
+							><a class="text-lg"
+								><u>Create an Account</u></a
+							></router-link
 						>
 					</p>
 				</div>
@@ -250,10 +252,7 @@ export default {
 	methods: {
 		loginUser() {
 			axios
-				.post(
-					"https://gomart-production.up.railway.app/user/login",
-					this.login_data,
-				)
+				.post("http://localhost:8080/user/login", this.login_data)
 				.then((response) => {
 					this.logged = response.data.userId;
 					this.logging(response.data.role);

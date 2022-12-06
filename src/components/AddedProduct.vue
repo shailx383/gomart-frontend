@@ -38,10 +38,7 @@ export default {
 	},
 	mounted() {
 		axios
-			.get(
-				"https://gomart-production.up.railway.app/user/" +
-					localStorage.logged,
-			)
+			.get("http://localhost:8080/user/" + localStorage.logged)
 			.then((response) => {
 				this.role = response.data.role;
 			});

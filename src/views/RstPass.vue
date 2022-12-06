@@ -86,14 +86,11 @@ export default {
 	methods: {
 		reset() {
 			axios
-				.post(
-					"https://gomart-production.up.railway.app/user/changePassword",
-					{
-						userId: localStorage.logged,
-						oldPassword: this.passwords.oldpass,
-						newPassword: this.passwords.newpass,
-					},
-				)
+				.post("http://localhost:8080/user/changePassword", {
+					userId: localStorage.logged,
+					oldPassword: this.passwords.oldpass,
+					newPassword: this.passwords.newpass,
+				})
 				.then(this.goToLogin);
 		},
 		goToLogin() {

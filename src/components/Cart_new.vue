@@ -254,10 +254,10 @@ export default {
 	},
 	methods: {
 		async remove(id) {
-			const resp = await axios.post(
-				"https://gomart-production.up.railway.app/user/cart",
-				{ productId: id, userId: localStorage.logged },
-			);
+			const resp = await axios.post("http://localhost:8080/user/cart", {
+				productId: id,
+				userId: localStorage.logged,
+			});
 			window.location.reload();
 		},
 		total() {
@@ -273,7 +273,7 @@ export default {
 	mounted() {
 		axios
 			.get(
-				"https://gomart-production.up.railway.app/user/" +
+				"http://localhost:8080/user/" +
 					localStorage.logged.toString() +
 					"/cart",
 			)

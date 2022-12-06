@@ -94,14 +94,11 @@ export default {
 	},
 	mounted() {
 		axios
-			.post(
-				"https://gomart-production.up.railway.app/user/orders/dateRange",
-				{
-					userId: localStorage.logged,
-					startDate: this.$route.params.start,
-					endDate: this.$route.params.end,
-				},
-			)
+			.post("http://localhost:8080/user/orders/dateRange", {
+				userId: localStorage.logged,
+				startDate: this.$route.params.start,
+				endDate: this.$route.params.end,
+			})
 			.then((response) => {
 				this.orders = response.data;
 			});

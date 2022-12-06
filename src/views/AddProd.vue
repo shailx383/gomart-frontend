@@ -424,21 +424,18 @@ export default {
 			};
 		},
 		async logoutUser() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/user/logout",
-				{
-					userId: localStorage.logged,
-				},
-			);
+			await axios.post("http://localhost:8080/user/logout", {
+				userId: localStorage.logged,
+			});
 			localStorage.removeItem("logged");
 			this.$router.push("/");
 		},
 		addProduct() {
 			axios
-				.post(
-					"https://gomart-production.up.railway.app/admin/addProduct",
-					{ senderId: localStorage.logged, product: this.product },
-				)
+				.post("http://localhost:8080/admin/addProduct", {
+					senderId: localStorage.logged,
+					product: this.product,
+				})
 				//.then(resp => (this.saveImage(resp.data)))
 				.then(this.showSuccess());
 		},

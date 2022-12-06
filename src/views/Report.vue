@@ -243,12 +243,9 @@ export default {
 	},
 	methods: {
 		async logoutUser() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/user/logout",
-				{
-					userId: localStorage.logged,
-				},
-			);
+			await axios.post("http://localhost:8080/user/logout", {
+				userId: localStorage.logged,
+			});
 			localStorage.removeItem("logged");
 			this.$router.push("/");
 		},
@@ -273,7 +270,7 @@ export default {
 	},
 	mounted() {
 		axios
-			.post("https://gomart-production.up.railway.app/admin/report", {
+			.post("http://localhost:8080/admin/report", {
 				senderId: localStorage.logged,
 				userId: this.$route.params.id,
 				startDate: "2022-11-22",

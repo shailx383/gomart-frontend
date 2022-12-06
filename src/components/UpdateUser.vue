@@ -105,10 +105,7 @@ export default {
 	},
 	mounted() {
 		axios
-			.get(
-				"https://gomart-production.up.railway.app/user/" +
-					localStorage.logged.toString(),
-			)
+			.get("http://localhost:8080/user/" + localStorage.logged.toString())
 			.then((response) => {
 				this.edit_info = response.data;
 				this.edit_info.phoneNumber = this.edit_info.phone;
@@ -117,7 +114,7 @@ export default {
 	methods: {
 		async editInfo() {
 			await axios.post(
-				"https://gomart-production.up.railway.app/user/update",
+				"http://localhost:8080/user/update",
 				this.edit_info,
 			);
 			window.location.reload();

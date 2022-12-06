@@ -261,10 +261,7 @@ export default {
 	methods: {
 		createUser() {
 			axios
-				.post(
-					"https://gomart-production.up.railway.app/user/signup",
-					this.signup_data,
-				)
+				.post("http://localhost:8080/user/signup", this.signup_data)
 				.then((response) => {
 					this.addMoney();
 				});

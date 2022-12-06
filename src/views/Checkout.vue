@@ -192,10 +192,9 @@ export default {
 		},
 		async placeOrder() {
 			await axios
-				.post(
-					"https://gomart-production.up.railway.app/user/cart/checkout",
-					{ userId: localStorage.logged },
-				)
+				.post("http://localhost:8080/user/cart/checkout", {
+					userId: localStorage.logged,
+				})
 				.then((response) => {
 					this.checkedOut();
 				})
@@ -203,9 +202,8 @@ export default {
 					this.error = error.response.data.message;
 					if (this.error == "Insufficient balance") {
 						this.showError();
-					}
-					else{
-						alert(this.error)
+					} else {
+						alert(this.error);
 					}
 				});
 		},
@@ -219,7 +217,7 @@ export default {
 	mounted() {
 		axios
 			.get(
-				"https://gomart-production.up.railway.app/user/" +
+				"http://localhost:8080/user/" +
 					localStorage.logged.toString() +
 					"/cart",
 			)

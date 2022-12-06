@@ -218,10 +218,9 @@ export default {
 	},
 	methods: {
 		async logoutUser() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/user/logout",
-				{ userId: localStorage.logged },
-			);
+			await axios.post("http://localhost:8080/user/logout", {
+				userId: localStorage.logged,
+			});
 			localStorage.removeItem("logged");
 			this.$router.push("/");
 		},

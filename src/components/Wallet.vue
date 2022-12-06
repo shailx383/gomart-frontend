@@ -45,7 +45,7 @@ export default {
 	methods: {
 		async topUpWallet() {
 			const resp = await axios.post(
-				"https://gomart-production.up.railway.app/user/wallet",
+				"http://localhost:8080/user/wallet",
 				this.edit_info,
 			);
 			window.location.reload();

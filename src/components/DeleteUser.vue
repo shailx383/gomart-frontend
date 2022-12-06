@@ -1,7 +1,7 @@
 <template>
 	<div class="py-6 px-6 lg:px-8">
 		<h2 class="mb-4 text-xl font-medium text-black-900 dark:text-black">
-            Are you sure you want to delete user {{name}}?
+			Are you sure you want to delete user {{ name }}?
 		</h2>
 		<br /><br /><br />
 		<button
@@ -18,14 +18,17 @@
 import axios from "axios";
 export default {
 	name: "LoginError",
-    props: ['id', 'name'],
+	props: ["id", "name"],
 	data() {
 		return {};
 	},
 	methods: {
 		async deleteUser() {
-            await axios.post('https://gomart-production.up.railway.app/admin/delete/user', {senderId: localStorage.logged, userId: this.id});
-            window.location.reload()
+			await axios.post("http://localhost:8080/admin/delete/user", {
+				senderId: localStorage.logged,
+				userId: this.id,
+			});
+			window.location.reload();
 		},
 	},
 };

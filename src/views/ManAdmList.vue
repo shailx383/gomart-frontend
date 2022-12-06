@@ -371,41 +371,37 @@ export default {
 		},
 		async approveManager(id) {
 			const resp = await axios.post(
-				"https://gomart-production.up.railway.app/admin/addManager",
+				"http://localhost:8080/admin/addManager",
 				{ senderId: localStorage.logged, userId: id },
 			);
 			window.location.reload();
 		},
 		async declineManager(id) {
 			const resp = await axios.post(
-				"https://gomart-production.up.railway.app/admin/removeManager",
+				"http://localhost:8080/admin/removeManager",
 				{ senderId: localStorage.logged, userId: id },
 			);
 			window.location.reload();
 			// .then(window.location.reload())
 		},
 		async logoutUser() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/user/logout",
-				{
-					userId: localStorage.logged,
-				},
-			);
+			await axios.post("http://localhost:8080/user/logout", {
+				userId: localStorage.logged,
+			});
 			localStorage.removeItem("logged");
 		},
 	},
 	mounted() {
 		axios
-			.post("https://gomart-production.up.railway.app/admin/managers", {
+			.post("http://localhost:8080/admin/managers", {
 				senderId: localStorage.logged,
 			})
 			.then((response) => (this.currentManagers = response.data));
 
 		axios
-			.post(
-				"https://gomart-production.up.railway.app/admin/managers/pending",
-				{ senderId: localStorage.logged },
-			)
+			.post("http://localhost:8080/admin/managers/pending", {
+				senderId: localStorage.logged,
+			})
 			.then((response1) => (this.pendingManagers = response1.data));
 	},
 };

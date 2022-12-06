@@ -40,7 +40,7 @@ export default {
 	methods: {
 		ForgotPass() {
 			axios.post(
-				"https://gomart-production.up.railway.app/mail/reset/password",
+				"http://localhost:8080/mail/reset/password",
 				this.login_data,
 			);
 		},

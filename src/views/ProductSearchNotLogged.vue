@@ -5,7 +5,7 @@
 			class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
 		>
 			<h2 class="text-2xl font-bold tracking-tight text-gray-900">
-				Results for {{ searchName }} ({{dash}}):
+				Results for {{ searchName }} ({{ dash }}):
 			</h2>
 
 			<div
@@ -31,7 +31,8 @@
 									<span
 										@click="
 											this.$router.push(
-												'/productnotlogged/' + prod.productId,
+												'/productnotlogged/' +
+													prod.productId,
 											)
 										"
 										aria-hidden="true"
@@ -45,7 +46,10 @@
 							</p>
 						</div>
 						<p class="text-sm font-medium text-gray-900">
-							₹{{prod.price*(1- prod.offer/100) }}  <strike v-if="checkoffer(prod.offer)"> ₹{{ prod.price }} </strike>
+							₹{{ prod.price * (1 - prod.offer / 100) }}
+							<strike v-if="checkoffer(prod.offer)">
+								₹{{ prod.price }}
+							</strike>
 						</p>
 					</div>
 				</div>
@@ -61,33 +65,29 @@ import Footer from "../components/Footer.vue";
 export default {
 	name: "ProductSearchNotLogged",
 	components: { NotLoggedNavbar, Footer },
-	props: ['dash'],
+	props: ["dash"],
 	data() {
 		return {
 			searchName: this.$route.params.search,
 			product: [],
-			dash: 'Loading...'
+			dash: "Loading...",
 		};
 	},
 	async mounted() {
-		const response = await axios
-			.get(
-				"https://gomart-production.up.railway.app/user/products/name/" +
-					this.searchName,
-			)
-			this.product = response.data;
-			this.dash = this.product.length;
+		const response = await axios.get(
+			"http://localhost:8080/user/products/name/" + this.searchName,
+		);
+		this.product = response.data;
+		this.dash = this.product.length;
 	},
-	methods:{
-		showProduct(p_id)
-		{
+	methods: {
+		showProduct(p_id) {
 			this.$router.push("/productnotlogged/" + p_id);
 		},
 		checkoffer(x) {
-			if(x==0){
+			if (x == 0) {
 				return false;
-			}
-			else{
+			} else {
 				return true;
 			}
 		},

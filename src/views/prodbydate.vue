@@ -299,32 +299,29 @@ export default {
 		},
 		async datesearch(date) {
 			const resp = await axios
-				.post(
-					"https://gomart-production.up.railway.app/admin/report/date",
-					{ senderId: localStorage.logged, startDate: date },
-				)
+				.post("http://localhost:8080/admin/report/date", {
+					senderId: localStorage.logged,
+					startDate: date,
+				})
 				.then((response) => {
 					this.orders = response.data;
 					//window.location.reload()
 				});
 		},
 		async logoutUser() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/user/logout",
-				{
-					userId: localStorage.logged,
-				},
-			);
+			await axios.post("http://localhost:8080/user/logout", {
+				userId: localStorage.logged,
+			});
 			localStorage.removeItem("logged");
 			this.$router.push("/");
 		},
 	},
 	mounted() {
 		axios
-			.post(
-				"https://gomart-production.up.railway.app/admin/report/date",
-				{ senderId: localStorage.logged, startDate: this.date },
-			)
+			.post("http://localhost:8080/admin/report/date", {
+				senderId: localStorage.logged,
+				startDate: this.date,
+			})
 			.then((response) => {
 				this.orders = response.data;
 			});

@@ -151,19 +151,13 @@ export default {
 	},
 	mounted() {
 		axios
-			.get(
-				"https://gomart-production.up.railway.app/user/products/" +
-					this.$route.params.id,
-			)
+			.get("http://localhost:8080/user/products/" + this.$route.params.id)
 			.then((response) => (this.product = response.data));
 	},
 	methods: {
 		addToCart() {
 			axios
-				.post(
-					"https://gomart-production.up.railway.app/user/addToCart",
-					this.purchase,
-				)
+				.post("http://localhost:8080/user/addToCart", this.purchase)
 				.then((response) => {
 					this.addedToCart();
 				})

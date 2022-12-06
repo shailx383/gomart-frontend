@@ -473,26 +473,22 @@ export default {
 			};
 		},
 		async editProduct() {
-			await axios
-				.post(
-					"https://gomart-production.up.railway.app/admin/updateProduct",
-					{ senderId: localStorage.logged, product: this.oldProduct },
-				)
-				this.showSuccess();
+			await axios.post("http://localhost:8080/admin/updateProduct", {
+				senderId: localStorage.logged,
+				product: this.oldProduct,
+			});
+			this.showSuccess();
 		},
 		showSuccess() {
 			this.show = !this.show;
 		},
 		async deleteProduct() {
-			await axios.post(
-				"https://gomart-production.up.railway.app/manager/deleteProduct",
-				{
-					senderId: localStorage.logged,
-					product: {
-						productId: this.oldProduct.productId,
-					},
+			await axios.post("http://localhost:8080/manager/deleteProduct", {
+				senderId: localStorage.logged,
+				product: {
+					productId: this.oldProduct.productId,
 				},
-			);
+			});
 			this.showDeletion();
 		},
 		showDeletion() {
@@ -501,10 +497,7 @@ export default {
 	},
 	mounted() {
 		axios
-			.get(
-				"https://gomart-production.up.railway.app/user/products/" +
-					this.$route.params.id,
-			)
+			.get("http://localhost:8080/user/products/" + this.$route.params.id)
 			.then((resp) => {
 				this.oldProduct = resp.data;
 			});

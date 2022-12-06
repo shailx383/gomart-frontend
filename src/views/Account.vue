@@ -291,7 +291,7 @@ export default {
 		},
 		async applyManager() {
 			const resp = await axios.post(
-				"https://gomart-production.up.railway.app/user/apply/manager",
+				"http://localhost:8080/user/apply/manager",
 				{ userId: localStorage.logged },
 			);
 			this.showApplied();
@@ -302,20 +302,19 @@ export default {
 		checkRole() {
 			return this.account_info.role == "CUSTOMER";
 		},
-		checkNotAdmin(){
-			return this.account_info.role != 'ADMIN';
+		checkNotAdmin() {
+			return this.account_info.role != "ADMIN";
 		},
-		async deleteAccount(){
-			await axios.post('https://gomart-production.up.railway.app/user/deleteAccount', {userId: localStorage.logged});
-			this.$router.push('/');
-		}
+		async deleteAccount() {
+			await axios.post("http://localhost:8080/user/deleteAccount", {
+				userId: localStorage.logged,
+			});
+			this.$router.push("/");
+		},
 	},
 	mounted() {
 		axios
-			.get(
-				"https://gomart-production.up.railway.app/user/" +
-					localStorage.logged.toString(),
-			)
+			.get("http://localhost:8080/user/" + localStorage.logged.toString())
 			.then((response) => {
 				this.account_info = response.data;
 
