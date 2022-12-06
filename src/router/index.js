@@ -26,7 +26,7 @@ import EditProdMan from '../views/EditProdMan.vue'
 import MainNotLogged from '../views/MainNotLogged.vue'
 import ProductSearchNotLogged from '../views/ProductSearchNotLogged'
 import PSBCNL from '../views/PSBCNL.vue'
-
+import ManageCustomers from '../views/ManageCustomers.vue'
 
 
 const routes = [
@@ -200,6 +200,12 @@ const routes = [
     path: '/productnotlogged/:id',
     name: 'productnotlogged',
     component: ProductNotLogged,
+    props: true
+  },
+  {
+    path: '/managecustomers',
+    name: 'managecustomers',
+    component: ManageCustomers,
     props: true
   },
 ]

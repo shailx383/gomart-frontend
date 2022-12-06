@@ -19,7 +19,7 @@
 						Or
 						{{ " " }}
 						<router-link to="/signup"
-							>Create an Account</router-link
+							><a class="text-lg"><u>Create an Account</u></a></router-link
 						>
 					</p>
 				</div>
