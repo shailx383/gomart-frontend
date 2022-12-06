@@ -113,6 +113,11 @@
 																		class="ml-4"
 																	>
 																		₹{{
+																			((100 -
+																				product
+																					.product
+																					.offer) /
+																				100) *
 																			product
 																				.product
 																				.price *
@@ -263,7 +268,9 @@ export default {
 		total() {
 			for (let i = 0; i < this.products.length; i++) {
 				this.totalPrice +=
-					this.products[i].product.price * this.products[i].quantity;
+					((100 - this.products[i].product.offer) / 100) *
+					this.products[i].product.price *
+					this.products[i].quantity;
 			}
 		},
 		goToCheckout() {
