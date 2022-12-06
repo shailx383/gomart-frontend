@@ -53,7 +53,7 @@
 					>Phone number:</label
 				>
 				<input
-					v-model="edit_info.phoneNumber"
+					v-model="edit_info.phone"
 					type="tel"
 					name="phone"
 					id="phone"
@@ -98,7 +98,7 @@ export default {
 				lastName: "",
 				dob: "2003-08-03",
 				email: "",
-				phoneNumber: "",
+				phone: "",
 				address: "",
 			},
 		};
